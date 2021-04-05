@@ -76,7 +76,7 @@ class DrawerLayoutState extends State<DrawerLayout> {
           child: Stack(children: [
             Positioned.fill(
               child: Image.asset(
-                AppUtils.isSystemLight ? 'assets/drawable/background_light.png': 'assets/drawable/background_dark.png',
+                AppUtils.isSystemLight ? 'drawable/background_light.png': 'drawable/background_dark.png',
                 filterQuality: FilterQuality.high,
                 repeat: ImageRepeat.repeat,
               ),
