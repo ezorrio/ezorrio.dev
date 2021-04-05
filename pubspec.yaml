@@ -41,5 +41,5 @@ dependencies:
 flutter:
   uses-material-design: true
 
-assets:
-  assets/drawable/
+  assets:
+    drawable/
