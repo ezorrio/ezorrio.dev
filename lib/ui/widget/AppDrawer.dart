@@ -9,6 +9,7 @@ import 'package:ezorrio_dev/ui/widget/ProfileHeader.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 import 'AnimatedWave.dart';
 
@@ -138,23 +139,34 @@ class AppDrawerState extends State<AppDrawer> {
       );
 
   Widget mainDrawer(BuildContext context) => Column(
-        mainAxisSize: MainAxisSize.min,
+        mainAxisSize: MainAxisSize.max,
         children: [
           Card(
             borderOnForeground: true,
             child: _header(context),
           ),
           SizedBox(height: 8),
-          Expanded(
-            child: Card(
-              child: ListView.builder(
-                scrollDirection:
-                    widget.isCompact ? Axis.horizontal : Axis.vertical,
-                itemCount: widget.pageList.length,
-                itemBuilder: (_, item) => _drawerItem(
-                    pageToOpen: widget.pageList[item],
-                    isActive: widget.currentPage == widget.pageList[item]),
+          Card(
+            child: ListView.builder(
+              shrinkWrap: true,
+              scrollDirection:
+                  widget.isCompact ? Axis.horizontal : Axis.vertical,
+              itemCount: widget.pageList.length,
+              itemBuilder: (_, item) => _drawerItem(
+                  pageToOpen: widget.pageList[item],
+                  isActive: widget.currentPage == widget.pageList[item]),
+            ),
+          ),
+          Card(
+            child: ListTile(
+              leading: FlutterLogo(),
+              title: Text(
+                'Powered by Flutter',
+                style: context.textStyleCaption,
               ),
+              onTap: () async => await canLaunch(Constants.FLUTTER_URL)
+                  ? await launch(Constants.FLUTTER_URL)
+                  : throw 'Could not launch ${Constants.FLUTTER_URL}',
             ),
           ),
         ],

@@ -10,6 +10,7 @@ class Constants {
   static const STUDY_FIELD = 'MSc Data Science';
   static const JOB_PLACE = 'wheel.me';
   static const JOB_TITLE = 'Lead Flutter Developer';
+  static const FLUTTER_URL = 'https://flutter.dev';
   static const DESKTOP_MENU_SIZE = 300.0;
 }
 
