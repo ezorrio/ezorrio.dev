@@ -8,7 +8,7 @@ class AppUtils {
       Brightness.light;
 
   static bool isCompact({required BuildContext context}) =>
-      MediaQuery.of(context).size.shortestSide < Constants.DESKTOP_MENU_SIZE * 2.5;
+      MediaQuery.of(context).size.width < Constants.DESKTOP_MENU_SIZE * 2.5;
 
   static void hideKeyboard(BuildContext context) =>
       FocusScope.of(context).requestFocus(FocusNode());

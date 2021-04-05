@@ -62,7 +62,7 @@ class AppDrawerState extends State<AppDrawer> {
           )),
           Center(
             child: Padding(
-              padding: const EdgeInsets.all(16.0),
+              padding: const EdgeInsets.symmetric(vertical: 12.0),
               child: ProfileHeader(
                 widget.isCompact,
                 Constants.NAME,
@@ -115,17 +115,13 @@ class AppDrawerState extends State<AppDrawer> {
         ),
       );
 
-  Widget mainDrawerCompact(BuildContext context) => Column(
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          Card(
-            borderOnForeground: true,
-            child: _header(context),
-          ),
-          SizedBox(height: 8),
-          LimitedBox(
-            maxHeight: 64,
-            child: Card(
+  Widget mainDrawerCompact(BuildContext context) => Card(
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            _header(context),
+            LimitedBox(
+              maxHeight: 40,
               child: ListView.builder(
                   scrollDirection:
                       widget.isCompact ? Axis.horizontal : Axis.vertical,
@@ -134,8 +130,8 @@ class AppDrawerState extends State<AppDrawer> {
                       pageToOpen: widget.pageList[item],
                       isActive: widget.currentPage == widget.pageList[item])),
             ),
-          ),
-        ],
+          ],
+        ),
       );
 
   Widget mainDrawer(BuildContext context) => Column(

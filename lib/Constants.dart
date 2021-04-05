@@ -5,7 +5,7 @@ class Constants {
   static final BIRTH_DATE = DateTime(1998, 1, 3);
   static const NICKNAME = 'ezorrio';
   static const LOCATION = 'Vienna, Austria';
-  static const BIO = 'Drink coffee, write code. Sleep. Repeat.';
+  static const BIO = 'Write 💻  ... Sleep 😴  ... Repeat 🔁';
   static const STUDY_PLACE = 'University of Vienna';
   static const STUDY_FIELD = 'MSc Data Science';
   static const JOB_PLACE = 'wheel.me';

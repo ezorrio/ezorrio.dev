@@ -15,7 +15,7 @@ class ProfileHeader extends StatelessWidget {
   @override
   Widget build(BuildContext context) => isCompact
       ? Row(
-          mainAxisAlignment: MainAxisAlignment.spaceAround,
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
             ClipOval(
               child: Image.network(
@@ -26,7 +26,7 @@ class ProfileHeader extends StatelessWidget {
               ),
             ),
             Column(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
                 Text(name, style: context.textStyleTitle),
                 SizedBox(height: 8),
@@ -39,9 +39,9 @@ class ProfileHeader extends StatelessWidget {
                     telegram: SocialNetworkLinks.TELEGRAM,
                     linkedin: SocialNetworkLinks.LINKEDIN,
                     github: SocialNetworkLinks.GITHUB,
-                    email: SocialNetworkLinks.EMAIL)
+                    email: SocialNetworkLinks.EMAIL),
               ],
-            )
+            ),
           ],
         )
       : Column(
@@ -50,8 +50,8 @@ class ProfileHeader extends StatelessWidget {
             ClipOval(
               child: Image.network(
                 photoUrl,
-                height: 64,
-                width: 64,
+                height: 56,
+                width: 56,
                 fit: BoxFit.cover,
               ),
             ),

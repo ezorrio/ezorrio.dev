@@ -16,9 +16,9 @@ class IntroPage extends StatefulWidget {
 class IntroPageState extends State<IntroPage> {
   Widget welcomeCard() => AppWidgets.infoCard(
         context: context,
-        title: 'Introduction',
+        title: 'About me 🐰',
         content: Text(
-          'Briefly speaking, I\'m originally from Azerbaijan, was born in Russia. \n\n'
+          'Briefly speaking, I\'m originally from Azerbaijan, but was born in Russia. \n\n'
           'Most of time I\'m coding, hiking, photographing and listening to music.',
           style: context.textStyleBody1,
         ),
@@ -26,11 +26,12 @@ class IntroPageState extends State<IntroPage> {
 
   Widget locationCard() => AppWidgets.infoCard(
         context: context,
-        title: 'Location',
+        title: 'Location 📍',
         content: Column(
           children: [
-            Text(
-                'I\'ve moved to Vienna, Austria in late 2019 and since then live there'),
+            Text('2019 - now: Vienna, Austria\n'
+                '2010 - 2019: Moscow, Russia\n'
+                '2006 - 2010: Nizhniy Novgorod, Russia'),
             SizedBox(height: 16),
             Image.network(
                 'https://photos.google.com/share/AF1QipNGy_k4gpCwzttVbUIyR2U1HDfm6MPqJJEijo2EDd5H-TQcYC2Yeh5_yGH7TFdTGw/photo/AF1QipM2K47MxmKfcZUnWbWlXtomqqRNKXiFrK_ncDw8?key=c0ZZcmJ3cVFBQlFBdzBobzl0R3dqZDBUbDZ1S3hn'),
@@ -40,7 +41,7 @@ class IntroPageState extends State<IntroPage> {
 
   Widget educationCard() => AppWidgets.infoCard(
         context: context,
-        title: 'Education',
+        title: 'Education 🎓',
         content: Column(
           children: [
             Text(
@@ -56,7 +57,7 @@ class IntroPageState extends State<IntroPage> {
 
   Widget workCard() => AppWidgets.infoCard(
         context: context,
-        title: 'Work',
+        title: 'Work 🧰',
         content: Column(
           children: [
             Text(
@@ -76,10 +77,10 @@ class IntroPageState extends State<IntroPage> {
   Widget build(BuildContext context) => StaggeredGridView.count(
         crossAxisCount: 2,
         staggeredTiles: [
-          const StaggeredTile.count(1, 1),
-          const StaggeredTile.count(1, 1),
-          const StaggeredTile.count(2, 2),
-          const StaggeredTile.count(2, 1.5),
+          const StaggeredTile.fit(1),
+          const StaggeredTile.fit(1),
+          const StaggeredTile.fit(2),
+          const StaggeredTile.fit(2),
         ],
         children: [
           welcomeCard(),
