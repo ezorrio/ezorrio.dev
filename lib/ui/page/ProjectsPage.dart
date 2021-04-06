@@ -7,6 +7,11 @@ class ProjectsPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return ListView.builder(
+      itemBuilder: (context, index) => Card(
+        child: Text('$index'),
+      ),
+      itemCount: 100,
+    );
   }
 }

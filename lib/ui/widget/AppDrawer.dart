@@ -1,16 +1,11 @@
-import 'dart:math';
-
 import 'package:ezorrio_dev/Constants.dart';
 import 'package:ezorrio_dev/Extensions.dart';
-import 'package:ezorrio_dev/Themes.dart';
 import 'package:ezorrio_dev/main.dart';
 import 'package:ezorrio_dev/model/AppPlace.dart';
 import 'package:ezorrio_dev/ui/widget/ProfileHeader.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-
-import 'AnimatedWave.dart';
 
 class AppDrawer extends StatefulWidget {
   final bool isCompact;
@@ -31,47 +26,6 @@ class AppDrawerState extends State<AppDrawer> {
   void initState() {
     super.initState();
   }
-
-  Widget _onBottom(Widget child) => Positioned.fill(
-        child: Align(
-          alignment: Alignment.bottomCenter,
-          child: child,
-        ),
-      );
-
-  Widget _header(BuildContext context) => Stack(
-        clipBehavior: Clip.antiAlias,
-        children: <Widget>[
-          _onBottom(AnimatedWave(
-            height: 20,
-            speed: 1.0,
-            color: AppColors.primary,
-          )),
-          _onBottom(AnimatedWave(
-            height: 60,
-            speed: 0.9,
-            offset: pi,
-            color: AppColors.primary,
-          )),
-          _onBottom(AnimatedWave(
-            height: 40,
-            speed: 1.2,
-            offset: pi / 2,
-            color: AppColors.primary,
-          )),
-          Center(
-            child: Padding(
-              padding: const EdgeInsets.symmetric(vertical: 12.0),
-              child: ProfileHeader(
-                widget.isCompact,
-                Constants.NAME,
-                Constants.BIO,
-                Constants.PHOTO,
-              ),
-            ),
-          ),
-        ],
-      );
 
   Widget _drawerItem({required AppPlace pageToOpen, bool isActive = false}) =>
       ListTile(
@@ -118,7 +72,13 @@ class AppDrawerState extends State<AppDrawer> {
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
-            _header(context),
+            ProfileHeader(
+              isCompact: widget.isCompact,
+              name: Constants.NAME,
+              bio: Constants.BIO,
+              photoUrl: Constants.PHOTO,
+              nickname: Constants.NICKNAME,
+            ),
             LimitedBox(
               maxHeight: 40,
               child: ListView.builder(
@@ -136,9 +96,12 @@ class AppDrawerState extends State<AppDrawer> {
   Widget mainDrawer(BuildContext context) => Column(
         mainAxisSize: MainAxisSize.max,
         children: [
-          Card(
-            borderOnForeground: true,
-            child: _header(context),
+          ProfileHeader(
+            isCompact: widget.isCompact,
+            name: Constants.NAME,
+            bio: Constants.BIO,
+            photoUrl: Constants.PHOTO,
+            nickname: Constants.NICKNAME,
           ),
           SizedBox(height: 8),
           Card(

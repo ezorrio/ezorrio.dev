@@ -15,8 +15,7 @@ class AppWidgets {
         repeat: ImageRepeat.repeat,
       );
 
-  static Widget poweredByFlutter({required BuildContext context}) =>
-      IconButton(
+  static Widget poweredByFlutter({required BuildContext context}) => IconButton(
         icon: FlutterLogo(),
         onPressed: () async => await canLaunch(Constants.FLUTTER_URL)
             ? await launch(Constants.FLUTTER_URL)
@@ -27,21 +26,21 @@ class AppWidgets {
           {required BuildContext context,
           required String title,
           required Widget content}) =>
-      SizedBox(
-        child: Card(
-          child: Padding(
-            padding: EdgeInsets.all(16),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(title,
-                    style: context.textStyleTitle.copyWith(
-                        color: context.primaryColor,
-                        fontWeight: FontWeight.bold)),
-                SizedBox(height: 16),
-                content,
-              ],
-            ),
+      Card(
+        clipBehavior: Clip.antiAlias,
+        child: Padding(
+          padding: EdgeInsets.all(16),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              Text(title,
+                  style: context.textStyleTitle.copyWith(
+                      color: context.primaryColor,
+                      fontWeight: FontWeight.bold)),
+              SizedBox(height: 16),
+              content,
+            ],
           ),
         ),
       );

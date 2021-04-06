@@ -156,7 +156,7 @@ class AppState extends State<App> with WidgetsBindingObserver, RouteAware {
               persistentFooterButtons: [
                 AppWidgets.themeChooser(context: context),
                 Container(
-                  height: 48,
+                  height: 40,
                   child: VerticalDivider(width: 1, indent: 4, endIndent: 4),
                 ),
                 AppWidgets.poweredByFlutter(context: context),

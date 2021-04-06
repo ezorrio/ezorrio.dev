@@ -27,9 +27,12 @@ class IntroPageState extends State<IntroPage> {
   Widget locationCard() => AppWidgets.infoCard(
         context: context,
         title: 'Location 📍',
-        content: Text('2019 - now: Vienna, Austria\n'
-            '2010 - 2019: Moscow, Russia\n'
-            '2006 - 2010: Nizhniy Novgorod, Russia'),
+        content: Text(
+          '2019 - now: Vienna, Austria\n'
+          '2010 - 2019: Moscow, Russia\n'
+          '2006 - 2010: Nizhniy Novgorod, Russia',
+          style: context.textStyleBody1,
+        ),
       );
 
   Widget educationCard() => AppWidgets.infoCard(
@@ -54,6 +57,9 @@ class IntroPageState extends State<IntroPage> {
 
   @override
   Widget build(BuildContext context) => StaggeredGridView.count(
+        addAutomaticKeepAlives: false,
+        addRepaintBoundaries: false,
+        restorationId: 'intro',
         crossAxisCount: 2,
         staggeredTiles: [
           const StaggeredTile.fit(1),
