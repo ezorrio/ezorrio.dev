@@ -1,11 +1,11 @@
 {
-    "name": "ezorrio_dev",
-    "short_name": "ezorrio_dev",
+    "name": "Emin Guliev",
+    "short_name": "ezorrio",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",
     "theme_color": "#0175C2",
-    "description": "A new Flutter project.",
+    "description": "My personal page",
     "orientation": "portrait-primary",
     "prefer_related_applications": false,
     "icons": [
