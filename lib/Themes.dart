@@ -24,6 +24,10 @@ class Themes {
                 borderRadius: BorderRadius.circular(12))),
         scaffoldBackgroundColor: Colors.white,
         pageTransitionsTheme: appPageTransitions,
+        buttonBarTheme: ButtonBarThemeData(
+            buttonHeight: 40,
+            alignment: MainAxisAlignment.center,
+            mainAxisSize: MainAxisSize.max),
         fontFamily: GoogleFonts.montserrat().fontFamily,
       );
 
@@ -39,6 +43,10 @@ class Themes {
         ),
         scaffoldBackgroundColor: Colors.grey.shade800,
         pageTransitionsTheme: appPageTransitions,
+        buttonBarTheme: ButtonBarThemeData(
+            buttonHeight: 40,
+            alignment: MainAxisAlignment.center,
+            mainAxisSize: MainAxisSize.max),
         fontFamily: GoogleFonts.montserrat().fontFamily,
       );
 }

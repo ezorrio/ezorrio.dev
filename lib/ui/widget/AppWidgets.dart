@@ -16,12 +16,8 @@ class AppWidgets {
       );
 
   static Widget poweredByFlutter({required BuildContext context}) =>
-      TextButton.icon(
+      IconButton(
         icon: FlutterLogo(),
-        label: Text(
-          'Powered by Flutter',
-          style: context.textStyleBody1,
-        ),
         onPressed: () async => await canLaunch(Constants.FLUTTER_URL)
             ? await launch(Constants.FLUTTER_URL)
             : throw 'Could not launch ${Constants.FLUTTER_URL}',
@@ -55,8 +51,6 @@ class AppWidgets {
         builder: (BuildContext context, AppearanceState state) => Row(
           mainAxisSize: MainAxisSize.min,
           children: [
-            Text('Theme', style: context.textStyleBody1),
-            SizedBox(width: 8),
             IconButton(
                 icon: Icon(Icons.wb_sunny_outlined),
                 disabledColor: context.primaryColor,
