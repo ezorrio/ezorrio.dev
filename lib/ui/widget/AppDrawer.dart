@@ -9,7 +9,6 @@ import 'package:ezorrio_dev/ui/widget/ProfileHeader.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:url_launcher/url_launcher.dart';
 
 import 'AnimatedWave.dart';
 
@@ -151,18 +150,6 @@ class AppDrawerState extends State<AppDrawer> {
               itemBuilder: (_, item) => _drawerItem(
                   pageToOpen: widget.pageList[item],
                   isActive: widget.currentPage == widget.pageList[item]),
-            ),
-          ),
-          Card(
-            child: ListTile(
-              leading: FlutterLogo(),
-              title: Text(
-                'Powered by Flutter',
-                style: context.textStyleCaption,
-              ),
-              onTap: () async => await canLaunch(Constants.FLUTTER_URL)
-                  ? await launch(Constants.FLUTTER_URL)
-                  : throw 'Could not launch ${Constants.FLUTTER_URL}',
             ),
           ),
         ],

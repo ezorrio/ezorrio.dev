@@ -3,6 +3,7 @@ import 'package:ezorrio_dev/Places.dart';
 import 'package:ezorrio_dev/bloc/navigation/NavigationBloc.dart';
 import 'package:ezorrio_dev/main.dart';
 import 'package:ezorrio_dev/model/AppPlace.dart';
+import 'package:ezorrio_dev/ui/widget/AppWidgets.dart';
 import 'package:ezorrio_dev/utils/AppUtils.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
@@ -75,11 +76,7 @@ class DrawerLayoutState extends State<DrawerLayout> {
           },
           child: Stack(children: [
             Positioned.fill(
-              child: Image.asset(
-                AppUtils.isSystemLight ? 'drawable/background_light.png': 'drawable/background_dark.png',
-                filterQuality: FilterQuality.high,
-                repeat: ImageRepeat.repeat,
-              ),
+              child: AppWidgets.appBackground(context: context),
             ),
             AppUtils.isCompact(context: context)
                 ? mobileLayout(page: state.currentPage)

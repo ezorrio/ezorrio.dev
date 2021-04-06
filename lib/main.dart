@@ -4,6 +4,7 @@ import 'package:ezorrio_dev/bloc/appearance/AppearanceBloc.dart';
 import 'package:ezorrio_dev/bloc/navigation/NavigationBloc.dart';
 import 'package:ezorrio_dev/resource/SettingsRepository.dart';
 import 'package:ezorrio_dev/ui/page/IntroPage.dart';
+import 'package:ezorrio_dev/ui/widget/AppWidgets.dart';
 import 'package:ezorrio_dev/ui/widget/DrawerLayout.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -152,6 +153,14 @@ class AppState extends State<App> with WidgetsBindingObserver, RouteAware {
                   key: App.navigatorKey,
                 ),
               ),
+              persistentFooterButtons: [
+                AppWidgets.themeChooser(context: context),
+                Container(
+                  height: 48,
+                  child: VerticalDivider(width: 1, indent: 4, endIndent: 4),
+                ),
+                AppWidgets.poweredByFlutter(context: context),
+              ],
             ),
             theme: Themes.materialTheme(),
             darkTheme: Themes.materialDarkTheme(),
