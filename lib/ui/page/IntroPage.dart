@@ -27,49 +27,28 @@ class IntroPageState extends State<IntroPage> {
   Widget locationCard() => AppWidgets.infoCard(
         context: context,
         title: 'Location 📍',
-        content: Column(
-          children: [
-            Text('2019 - now: Vienna, Austria\n'
-                '2010 - 2019: Moscow, Russia\n'
-                '2006 - 2010: Nizhniy Novgorod, Russia'),
-            SizedBox(height: 16),
-            Image.network(
-                'https://photos.google.com/share/AF1QipNGy_k4gpCwzttVbUIyR2U1HDfm6MPqJJEijo2EDd5H-TQcYC2Yeh5_yGH7TFdTGw/photo/AF1QipM2K47MxmKfcZUnWbWlXtomqqRNKXiFrK_ncDw8?key=c0ZZcmJ3cVFBQlFBdzBobzl0R3dqZDBUbDZ1S3hn'),
-          ],
-        ),
+        content: Text('2019 - now: Vienna, Austria\n'
+            '2010 - 2019: Moscow, Russia\n'
+            '2006 - 2010: Nizhniy Novgorod, Russia'),
       );
 
   Widget educationCard() => AppWidgets.infoCard(
         context: context,
         title: 'Education 🎓',
-        content: Column(
-          children: [
-            Text(
-              'Currently I study at University of Vienna, MSc Computer Science, Data Science field',
-              style: context.textStyleBody1,
-            ),
-            SizedBox(height: 16),
-            Image.network(
-                'https://datascience.univie.ac.at/fileadmin/_processed_/csm_14520043908_6c16baa2c2_k_5ed7f190ee.jpg'),
-          ],
+        content: Text(
+          'Currently I study at University of Vienna, MSc Computer Science, Data Science field',
+          style: context.textStyleBody1,
         ),
       );
 
   Widget workCard() => AppWidgets.infoCard(
         context: context,
         title: 'Work 🧰',
-        content: Column(
-          children: [
-            Text(
-              'Despite studying Data Science, I\'m more experienced as Application Developer. \n\n'
-              'Have more than 5 years of experience with Android. \n\n'
-              'Currently I work as a Lead Flutter Developer at wheel.me, on an cross-platform app for robots control',
-              style: context.textStyleBody1,
-            ),
-            SizedBox(height: 16),
-            Image.network(
-                'https://static.wixstatic.com/media/6de112_fb65ca1fdb794b07a8986d8428321e07~mv2.jpg/v1/fill/w_117,h_45,al_c,q_80,usm_0.66_1.00_0.01/Wheelme_rgb.jpg'),
-          ],
+        content: Text(
+          'Despite studying Data Science, I\'m more experienced as Application Developer. \n\n'
+          'Have more than 5 years of experience with Android. \n\n'
+          'Currently I work as a Lead Flutter Developer at wheel.me, on an cross-platform app for robots control',
+          style: context.textStyleBody1,
         ),
       );
 
@@ -79,14 +58,14 @@ class IntroPageState extends State<IntroPage> {
         staggeredTiles: [
           const StaggeredTile.fit(1),
           const StaggeredTile.fit(1),
-          const StaggeredTile.fit(2),
-          const StaggeredTile.fit(2),
+          const StaggeredTile.fit(1),
+          const StaggeredTile.fit(1),
         ],
         children: [
           welcomeCard(),
           locationCard(),
-          educationCard(),
           workCard(),
+          educationCard(),
         ],
       );
 }
