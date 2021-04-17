@@ -1,11 +1,12 @@
-import 'package:ezorrio_dev/Constants.dart';
 import 'package:ezorrio_dev/Extensions.dart';
 import 'package:ezorrio_dev/main.dart';
 import 'package:ezorrio_dev/model/AppPlace.dart';
+import 'package:ezorrio_dev/resource/DataRepository.dart';
 import 'package:ezorrio_dev/ui/widget/ProfileHeader.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class AppDrawer extends StatefulWidget {
   final bool isCompact;
@@ -74,10 +75,12 @@ class AppDrawerState extends State<AppDrawer> {
           children: [
             ProfileHeader(
               isCompact: widget.isCompact,
-              name: Constants.NAME,
-              bio: Constants.BIO,
-              photoUrl: Constants.PHOTO,
-              nickname: Constants.NICKNAME,
+              name: RepositoryProvider.of<DataRepository>(context).name,
+              bio: RepositoryProvider.of<DataRepository>(context).bio,
+              photoUrl: RepositoryProvider.of<DataRepository>(context).photo,
+              nickname: RepositoryProvider.of<DataRepository>(context).nickname,
+              networkLinks:
+                  RepositoryProvider.of<DataRepository>(context).networkLinks,
             ),
             LimitedBox(
               maxHeight: 40,
@@ -98,10 +101,12 @@ class AppDrawerState extends State<AppDrawer> {
         children: [
           ProfileHeader(
             isCompact: widget.isCompact,
-            name: Constants.NAME,
-            bio: Constants.BIO,
-            photoUrl: Constants.PHOTO,
-            nickname: Constants.NICKNAME,
+            name: RepositoryProvider.of<DataRepository>(context).name,
+            bio: RepositoryProvider.of<DataRepository>(context).bio,
+            photoUrl: RepositoryProvider.of<DataRepository>(context).photo,
+            nickname: RepositoryProvider.of<DataRepository>(context).nickname,
+            networkLinks:
+                RepositoryProvider.of<DataRepository>(context).networkLinks,
           ),
           SizedBox(height: 8),
           Card(

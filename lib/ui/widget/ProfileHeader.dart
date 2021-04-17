@@ -1,8 +1,8 @@
 import 'dart:math';
 
-import 'package:ezorrio_dev/Constants.dart';
 import 'package:ezorrio_dev/Extensions.dart';
 import 'package:ezorrio_dev/Themes.dart';
+import 'package:ezorrio_dev/resource/DataRepository.dart';
 import 'package:ezorrio_dev/ui/widget/SocialNetworks.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
@@ -15,13 +15,15 @@ class ProfileHeader extends StatelessWidget {
   final String name;
   final String bio;
   final String nickname;
+  final SocialNetworkLinks networkLinks;
 
   ProfileHeader(
       {required this.isCompact,
       required this.name,
       required this.bio,
       required this.photoUrl,
-      required this.nickname});
+      required this.nickname,
+      required this.networkLinks});
 
   Widget _onBottom(Widget child) => Positioned.fill(
         child: Align(
@@ -52,13 +54,13 @@ class ProfileHeader extends StatelessWidget {
                 Text(bio, style: context.textStyleCaption),
                 SizedBox(height: 4),
                 SocialNetworks(
-                    twitter: SocialNetworkLinks.TWITTER,
-                    instagram: SocialNetworkLinks.INSTAGRAM,
-                    facebook: SocialNetworkLinks.FACEBOOK,
-                    telegram: SocialNetworkLinks.TELEGRAM,
-                    linkedin: SocialNetworkLinks.LINKEDIN,
-                    github: SocialNetworkLinks.GITHUB,
-                    email: SocialNetworkLinks.EMAIL),
+                    twitter: networkLinks.twitter,
+                    instagram: networkLinks.instagram,
+                    facebook: networkLinks.facebook,
+                    telegram: networkLinks.telegram,
+                    linkedin: networkLinks.linkedin,
+                    github: networkLinks.github,
+                    email: networkLinks.email),
               ],
             ),
           ],
@@ -82,13 +84,13 @@ class ProfileHeader extends StatelessWidget {
             Text(bio, style: context.textStyleCaption),
             SizedBox(height: 8),
             SocialNetworks(
-                twitter: SocialNetworkLinks.TWITTER,
-                instagram: SocialNetworkLinks.INSTAGRAM,
-                facebook: SocialNetworkLinks.FACEBOOK,
-                telegram: SocialNetworkLinks.TELEGRAM,
-                linkedin: SocialNetworkLinks.LINKEDIN,
-                github: SocialNetworkLinks.GITHUB,
-                email: SocialNetworkLinks.EMAIL)
+                twitter: networkLinks.twitter,
+                instagram: networkLinks.instagram,
+                facebook: networkLinks.facebook,
+                telegram: networkLinks.telegram,
+                linkedin: networkLinks.linkedin,
+                github: networkLinks.github,
+                email: networkLinks.email),
           ],
         );
 

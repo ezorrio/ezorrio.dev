@@ -2,6 +2,7 @@ import 'package:ezorrio_dev/Routes.dart';
 import 'package:ezorrio_dev/Themes.dart';
 import 'package:ezorrio_dev/bloc/appearance/AppearanceBloc.dart';
 import 'package:ezorrio_dev/bloc/navigation/NavigationBloc.dart';
+import 'package:ezorrio_dev/resource/DataRepository.dart';
 import 'package:ezorrio_dev/resource/SettingsRepository.dart';
 import 'package:ezorrio_dev/ui/page/IntroPage.dart';
 import 'package:ezorrio_dev/ui/widget/AppWidgets.dart';
@@ -79,6 +80,9 @@ void main() {
       providers: [
         RepositoryProvider<SettingsRepository>(
           create: (BuildContext context) => SettingsRepository(),
+        ),
+        RepositoryProvider<DataRepository>(
+          create: (BuildContext context) => DataRepository(),
         ),
       ],
       child: MultiBlocProvider(providers: [
