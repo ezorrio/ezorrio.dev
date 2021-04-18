@@ -1,6 +1,7 @@
 import 'package:ezorrio_dev/Constants.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 
 class AppUtils {
   static bool isSystemLight({required BuildContext context}) =>
@@ -11,4 +12,10 @@ class AppUtils {
 
   static void hideKeyboard(BuildContext context) =>
       FocusScope.of(context).requestFocus(FocusNode());
+
+  static String formatTime(DateTime? time) => time != null
+      ? time == DateTime.now()
+          ? 'Today'
+          : DateFormat('yyyy/MM').format(time)
+      : '?';
 }

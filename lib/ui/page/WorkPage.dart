@@ -3,22 +3,16 @@ import 'package:ezorrio_dev/model/Project.dart';
 import 'package:ezorrio_dev/model/Work.dart';
 import 'package:ezorrio_dev/resource/DataRepository.dart';
 import 'package:ezorrio_dev/ui/widget/AppWidgets.dart';
+import 'package:ezorrio_dev/utils/AppUtils.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:intl/intl.dart';
 import 'package:timelines/timelines.dart';
 
 class WorkPage extends StatelessWidget {
   static const routeName = '/work';
 
   static WorkPage instance() => WorkPage();
-
-  String formatTime(DateTime? time) => time != null
-      ? time == DateTime.now()
-          ? 'Today'
-          : DateFormat('yyyy/MM').format(time)
-      : '?';
 
   Widget projectItem(BuildContext context, Project project) => Column(
         mainAxisSize: MainAxisSize.min,
@@ -30,6 +24,17 @@ class WorkPage extends StatelessWidget {
           ),
           SizedBox(height: 12),
           Text(project.description),
+          SizedBox(height: 12),
+          Wrap(
+            children: [
+              ...project.tags.map(
+                (e) => Padding(
+                  padding: const EdgeInsets.all(2.0),
+                  child: Chip(label: Text(e, style: context.textStyleCaption)),
+                ),
+              ),
+            ],
+          ),
         ],
       );
 
@@ -41,7 +46,7 @@ class WorkPage extends StatelessWidget {
           mainAxisSize: MainAxisSize.min,
           children: [
             Text(
-              '${work.position} (${formatTime(work.start!)} - ${formatTime(work.end!)})',
+              '${work.position} (${AppUtils.formatTime(work.start!)} - ${AppUtils.formatTime(work.end!)})',
             ),
             ...work.projects.map(
               (item) => Padding(
