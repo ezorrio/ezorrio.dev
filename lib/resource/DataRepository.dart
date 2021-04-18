@@ -1,3 +1,4 @@
+import 'package:ezorrio_dev/model/Education.dart';
 import 'package:ezorrio_dev/model/Project.dart';
 import 'package:ezorrio_dev/model/Work.dart';
 
@@ -14,6 +15,23 @@ class DataRepository {
   String job_place = 'wheel.me';
   String job_title = 'Lead Flutter Developer';
   SocialNetworkLinks networkLinks = SocialNetworkLinks();
+  List<Education> education = [
+    Education(
+        place: 'University of Vienna',
+        occupation: 'Master of Computer/Data Science',
+        description: '...',
+        start: DateTime(2020, 3),
+        end: DateTime.now()),
+    Education(
+      place: 'Moscow Power Engineering Institute',
+      occupation: 'Barchelor of Computer Science',
+      description:
+          'Studies were focused more on mathematics rather than on programming',
+      start: DateTime(2014, 9),
+      end: DateTime(2018, 6),
+    )
+  ];
+
   List<Project> projects = [
     Project(
         title: 'Phoenix for VK',
