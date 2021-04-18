@@ -47,31 +47,35 @@ class AppWidgets {
 
   static Widget themeChooser({required BuildContext context}) => BlocBuilder(
         bloc: BlocProvider.of<AppearanceBloc>(context),
-        builder: (BuildContext context, AppearanceState state) => Row(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            IconButton(
-                icon: Icon(Icons.wb_sunny_outlined),
-                disabledColor: context.primaryColor,
-                onPressed: state.theme != AppTheme.LIGHT
-                    ? () => BlocProvider.of<AppearanceBloc>(context)
-                        .add(LightManualChose())
-                    : null),
-            IconButton(
-                icon: Icon(Icons.nightlight_round),
-                disabledColor: context.primaryColor,
-                onPressed: state.theme != AppTheme.DARK
-                    ? () => BlocProvider.of<AppearanceBloc>(context)
-                        .add(DarkManualChose())
-                    : null),
-            IconButton(
-                icon: Icon(Icons.brightness_auto_outlined),
-                disabledColor: context.primaryColor,
-                onPressed: state.theme != AppTheme.SYSTEM
-                    ? () => BlocProvider.of<AppearanceBloc>(context)
-                        .add(SystemChose())
-                    : null),
-          ],
+        builder: (BuildContext context, AppearanceState state) => Padding(
+          padding: const EdgeInsets.all(16.0),
+          child: Row(
+            mainAxisSize: MainAxisSize.max,
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              IconButton(
+                  icon: Icon(Icons.wb_sunny_outlined),
+                  disabledColor: context.primaryColor,
+                  onPressed: state.theme != AppTheme.LIGHT
+                      ? () => BlocProvider.of<AppearanceBloc>(context)
+                          .add(LightManualChose())
+                      : null),
+              IconButton(
+                  icon: Icon(Icons.nightlight_round),
+                  disabledColor: context.primaryColor,
+                  onPressed: state.theme != AppTheme.DARK
+                      ? () => BlocProvider.of<AppearanceBloc>(context)
+                          .add(DarkManualChose())
+                      : null),
+              IconButton(
+                  icon: Icon(Icons.brightness_auto_outlined),
+                  disabledColor: context.primaryColor,
+                  onPressed: state.theme != AppTheme.SYSTEM
+                      ? () => BlocProvider.of<AppearanceBloc>(context)
+                          .add(SystemChose())
+                      : null),
+            ],
+          ),
         ),
       );
 }

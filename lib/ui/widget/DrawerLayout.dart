@@ -27,9 +27,7 @@ class DrawerLayoutState extends State<DrawerLayout> {
   Widget mobileLayout({required AppPlace? page}) => Column(
         mainAxisSize: MainAxisSize.max,
         children: [
-          ConstrainedBox(
-              constraints: BoxConstraints(maxHeight: 250),
-              child: drawer(isCompact: true, page: page)),
+          drawer(isCompact: true, page: page),
           Expanded(child: widget.child),
         ],
       );

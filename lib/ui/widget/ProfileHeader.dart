@@ -3,6 +3,7 @@ import 'dart:math';
 import 'package:ezorrio_dev/Extensions.dart';
 import 'package:ezorrio_dev/Themes.dart';
 import 'package:ezorrio_dev/resource/DataRepository.dart';
+import 'package:ezorrio_dev/ui/widget/AppWidgets.dart';
 import 'package:ezorrio_dev/ui/widget/SocialNetworks.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
@@ -28,6 +29,13 @@ class ProfileHeader extends StatelessWidget {
   Widget _onBottom(Widget child) => Positioned.fill(
         child: Align(
           alignment: Alignment.bottomCenter,
+          child: child,
+        ),
+      );
+
+  Widget _onCorner(Widget child) => Positioned.fill(
+        child: Align(
+          alignment: Alignment.topRight,
           child: child,
         ),
       );
@@ -94,36 +102,45 @@ class ProfileHeader extends StatelessWidget {
           ],
         );
 
-  Widget waves(BuildContext context) => Card(
-        clipBehavior: Clip.antiAlias,
-        child: Stack(
-          children: <Widget>[
-            _onBottom(AnimatedWave(
-              height: 20,
-              speed: 1.0,
-              color: AppColors.primary,
-            )),
-            _onBottom(AnimatedWave(
-              height: 60,
-              speed: 0.9,
-              offset: pi,
-              color: AppColors.primary,
-            )),
-            _onBottom(AnimatedWave(
-              height: 40,
-              speed: 1.2,
-              offset: pi / 2,
-              color: AppColors.primary,
-            )),
-            Center(
-              child: Padding(
-                  padding: EdgeInsets.symmetric(vertical: isCompact ? 8 : 12),
-                  child: profile(context)),
-            ),
-          ],
-        ),
+  Widget waves(BuildContext context) => Stack(
+        children: <Widget>[
+          _onBottom(AnimatedWave(
+            height: 20,
+            speed: 1.0,
+            color: AppColors.primary,
+          )),
+          _onBottom(AnimatedWave(
+            height: 60,
+            speed: 0.9,
+            offset: pi,
+            color: AppColors.primary,
+          )),
+          _onBottom(AnimatedWave(
+            height: 40,
+            speed: 1.2,
+            offset: pi / 2,
+            color: AppColors.primary,
+          )),
+          _onCorner(IconButton(
+            icon: Icon(Icons.bedtime_outlined, size: 16),
+            onPressed: () => showModalBottomSheet(
+                context: context,
+                builder: (builder) =>
+                    AppWidgets.themeChooser(context: context)),
+          )),
+          Center(
+            child: Padding(
+                padding: EdgeInsets.symmetric(vertical: isCompact ? 8 : 12),
+                child: profile(context)),
+          ),
+        ],
       );
 
   @override
-  Widget build(BuildContext context) => waves(context);
+  Widget build(BuildContext context) => isCompact
+      ? waves(context)
+      : Card(
+          clipBehavior: Clip.antiAlias,
+          child: waves(context),
+        );
 }

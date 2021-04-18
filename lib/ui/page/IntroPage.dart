@@ -1,5 +1,6 @@
 import 'package:ezorrio_dev/Extensions.dart';
 import 'package:ezorrio_dev/ui/widget/AppWidgets.dart';
+import 'package:ezorrio_dev/utils/AppUtils.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
@@ -60,7 +61,7 @@ class IntroPageState extends State<IntroPage> {
         addAutomaticKeepAlives: false,
         addRepaintBoundaries: false,
         restorationId: 'intro',
-        crossAxisCount: 2,
+        crossAxisCount: AppUtils.isCompact(context: context) ? 1 : 2,
         staggeredTiles: [
           const StaggeredTile.fit(1),
           const StaggeredTile.fit(1),
