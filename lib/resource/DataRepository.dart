@@ -62,6 +62,7 @@ class DataRepository {
         title: 'Yandex Translate (non-official)',
         description: 'Alternative Yandex.Translate for Android\n'
             'Open-source project to improve knowledge on bleeding-edge frameworks and patterns according to that time.',
+        link: 'https://github.com/ezorrio/YandexTranslate',
         tags: [
           'android',
           'kotlin',
@@ -97,6 +98,15 @@ class DataRepository {
         ],
         start: DateTime(2018),
         end: DateTime(2018)),
+    Project(
+        title: 'Music genre recognition',
+        description:
+            'Machine learning project which predicts music genre based on features\n'
+            'Uses Local Sensitive Hashing (LSH). Used FMA as dataset for learning.',
+        link: 'https://github.com/ezorrio/genre-classification',
+        tags: ['python', 'lsh', 'fma', 'music'],
+        start: DateTime(2021),
+        end: DateTime(2021))
   ];
 
   List<Work> works = [
