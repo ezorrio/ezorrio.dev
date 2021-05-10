@@ -24,7 +24,7 @@ class DataRepository {
         end: DateTime.now()),
     Education(
       place: 'Moscow Power Engineering Institute',
-      occupation: 'Barchelor of Computer Science',
+      occupation: 'Bachelor of Computer Science',
       description:
           'Studies were focused more on mathematics rather than on programming',
       start: DateTime(2014, 9),
