@@ -1,11 +1,14 @@
-part of 'AppearanceBloc.dart';
+import 'package:freezed_annotation/freezed_annotation.dart';
 
-class AppearanceState {
-  AppTheme theme;
+part 'AppearanceState.freezed.dart';
 
-  AppearanceState({required this.theme});
+@freezed
+class AppearanceState with _$AppearanceState {
+  const factory AppearanceState.light() = Light;
 
-  List<Object> get props => [theme];
+  const factory AppearanceState.dark() = Dark;
+
+  const factory AppearanceState.system() = System;
 }
 
 enum AppTheme { LIGHT, DARK, SYSTEM }

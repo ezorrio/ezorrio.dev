@@ -1,15 +1,18 @@
 import 'package:ezorrio_dev/Routes.dart';
 import 'package:ezorrio_dev/Themes.dart';
-import 'package:ezorrio_dev/bloc/appearance/AppearanceBloc.dart';
+import 'package:ezorrio_dev/bloc/appearance/AppearanceCubit.dart';
 import 'package:ezorrio_dev/bloc/navigation/NavigationBloc.dart';
 import 'package:ezorrio_dev/resource/DataRepository.dart';
 import 'package:ezorrio_dev/resource/SettingsRepository.dart';
 import 'package:ezorrio_dev/ui/page/IntroPage.dart';
 import 'package:ezorrio_dev/ui/widget/DrawerLayout.dart';
+import 'package:ezorrio_dev/utils/AppUtils.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+
+import 'bloc/appearance/AppearanceState.dart';
 
 class AppRouteObserver extends RouteObserver<PageRoute<dynamic>> {
   NavigationBloc bloc;
@@ -88,8 +91,8 @@ void main() {
         BlocProvider<NavigationBloc>(
           create: (BuildContext context) => NavigationBloc(),
         ),
-        BlocProvider<AppearanceBloc>(
-          create: (BuildContext context) => AppearanceBloc(
+        BlocProvider<AppearanceCubit>(
+          create: (BuildContext context) => AppearanceCubit(
               repository: RepositoryProvider.of<SettingsRepository>(context)),
         ),
       ], child: App()));
@@ -108,7 +111,7 @@ class App extends StatefulWidget {
 class AppState extends State<App> with WidgetsBindingObserver, RouteAware {
   @override
   void didChangePlatformBrightness() {
-    BlocProvider.of<AppearanceBloc>(context).add(PlatformThemeChanged());
+    BlocProvider.of<AppearanceCubit>(context).platformThemeChanged();
   }
 
   @override
@@ -125,17 +128,14 @@ class AppState extends State<App> with WidgetsBindingObserver, RouteAware {
 
   @override
   Widget build(BuildContext context) =>
-      BlocBuilder<AppearanceBloc, AppearanceState>(
+      BlocBuilder<AppearanceCubit, AppearanceState>(
         builder: (_, state) => Theme(
-          data: state.theme == AppTheme.LIGHT
-              ? Themes.materialTheme()
-              : state.theme == AppTheme.DARK
-                  ? Themes.materialDarkTheme()
-                  : MediaQueryData.fromWindow(WidgetsBinding.instance!.window)
-                              .platformBrightness ==
-                          Brightness.light
-                      ? Themes.materialTheme()
-                      : Themes.materialDarkTheme(),
+          data: state.map(
+              light: (_) => Themes.materialTheme(),
+              dark: (_) => Themes.materialDarkTheme(),
+              system: (_) => AppUtils.isSystemLight(context: context)
+                  ? Themes.materialTheme()
+                  : Themes.materialDarkTheme()),
           child: MaterialApp(
             localizationsDelegates: <LocalizationsDelegate<dynamic>>[
               DefaultMaterialLocalizations.delegate,
@@ -159,11 +159,10 @@ class AppState extends State<App> with WidgetsBindingObserver, RouteAware {
             ),
             theme: Themes.materialTheme(),
             darkTheme: Themes.materialDarkTheme(),
-            themeMode: state.theme == AppTheme.LIGHT
-                ? ThemeMode.light
-                : state.theme == AppTheme.DARK
-                    ? ThemeMode.dark
-                    : ThemeMode.system,
+            themeMode: state.map(
+                light: (_) => ThemeMode.light,
+                dark: (_) => ThemeMode.dark,
+                system: (_) => ThemeMode.system),
           ),
         ),
       );

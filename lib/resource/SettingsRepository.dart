@@ -1,4 +1,4 @@
-import 'package:ezorrio_dev/bloc/appearance/AppearanceBloc.dart';
+import 'package:ezorrio_dev/bloc/appearance/AppearanceState.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class SettingsRepository {

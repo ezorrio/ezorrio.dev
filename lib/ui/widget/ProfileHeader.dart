@@ -123,7 +123,7 @@ class ProfileHeader extends StatelessWidget {
           )),
           _onCorner(IconButton(
             icon: Icon(Icons.bedtime_outlined, size: 16),
-            onPressed: () => showModalBottomSheet(
+            onPressed: () => showModalBottomSheet<void>(
                 context: context,
                 builder: (builder) =>
                     AppWidgets.themeChooser(context: context)),

@@ -7,7 +7,7 @@ import 'package:flutter/material.dart';
 class Routes {
   static PageRoute onGenerateRoute(
       {required BuildContext context, required RouteSettings settings}) {
-    var routeContent;
+    Widget routeContent;
     var fullscreenDialog = false;
     switch (settings.name) {
       case EducationPage.routeName:
@@ -24,7 +24,7 @@ class Routes {
         routeContent = IntroPage.instance();
         break;
     }
-    return MaterialPageRoute(
+    return MaterialPageRoute<dynamic>(
         builder: (_) => routeContent,
         settings: settings,
         fullscreenDialog: fullscreenDialog);
