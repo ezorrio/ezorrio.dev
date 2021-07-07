@@ -57,21 +57,21 @@ class AppWidgets {
               IconButton(
                   icon: Icon(Icons.wb_sunny_outlined),
                   disabledColor: context.primaryColor,
-                  onPressed: state is Light
+                  onPressed: !(state is Light)
                       ? () => BlocProvider.of<AppearanceCubit>(context)
                           .lightManualChose()
                       : null),
               IconButton(
                   icon: Icon(Icons.nightlight_round),
                   disabledColor: context.primaryColor,
-                  onPressed: state is Dark
+                  onPressed: !(state is Dark)
                       ? () => BlocProvider.of<AppearanceCubit>(context)
                           .darkManualChose()
                       : null),
               IconButton(
                   icon: Icon(Icons.brightness_auto_outlined),
                   disabledColor: context.primaryColor,
-                  onPressed: state is System
+                  onPressed: !(state is System)
                       ? () => BlocProvider.of<AppearanceCubit>(context)
                           .systemChose()
                       : null),
