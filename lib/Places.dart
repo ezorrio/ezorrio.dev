@@ -7,16 +7,16 @@ import 'package:flutter/material.dart';
 import 'model/AppPlace.dart';
 
 class Places {
-  static var INTRO = AppPlace(
+  static var intro = AppPlace(
       title: 'Introduction',
       icon: Icons.info_outline,
       routeName: IntroPage.routeName);
-  static var EDUCATION = AppPlace(
+  static var education = AppPlace(
       title: 'Education',
       icon: Icons.book_outlined,
       routeName: EducationPage.routeName);
-  static var WORK = AppPlace(
+  static var work = AppPlace(
       title: 'Career', icon: Icons.work_outline, routeName: WorkPage.routeName);
-  static var PROJECTS = AppPlace(
+  static var projects = AppPlace(
       title: 'Projects', icon: Icons.code, routeName: ProjectsPage.routeName);
 }

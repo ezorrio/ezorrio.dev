@@ -10,26 +10,29 @@ class AnimatedWave extends StatelessWidget {
   final double offset;
   final Color color;
 
-  AnimatedWave(
+  const AnimatedWave(
       {required this.height,
-        required this.speed,
-        this.offset = 0.0,
-        this.color = Colors.white});
+      required this.speed,
+      this.offset = 0.0,
+      this.color = Colors.white,
+      Key? key})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) => LayoutBuilder(
-    builder: (context, constraints) => Container(
-      height: height,
-      width: constraints.biggest.width,
-      child: LoopAnimation(
-        duration: Duration(milliseconds: (5000 / speed).round()),
-        tween: Tween(begin: 0.0, end: 2 * pi),
-        builder: (context, widget, value) => CustomPaint(
-          foregroundPainter: CurvePainter((value as double) + offset, color),
+        builder: (context, constraints) => SizedBox(
+          height: height,
+          width: constraints.biggest.width,
+          child: LoopAnimation(
+            duration: Duration(milliseconds: (5000 / speed).round()),
+            tween: Tween(begin: 0.0, end: 2 * pi),
+            builder: (context, widget, value) => CustomPaint(
+              foregroundPainter:
+                  CurvePainter((value as double) + offset, color),
+            ),
+          ),
         ),
-      ),
-    ),
-  );
+      );
 }
 
 class CurvePainter extends CustomPainter {

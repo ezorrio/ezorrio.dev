@@ -10,7 +10,9 @@ import 'package:timelines/timelines.dart';
 class EducationPage extends StatelessWidget {
   static const routeName = '/education';
 
-  static EducationPage instance() => EducationPage();
+  const EducationPage({Key? key}) : super(key: key);
+
+  static EducationPage instance() => const EducationPage();
 
   Widget projectItem(BuildContext context, Education education) =>
       AppWidgets.infoCard(
@@ -25,7 +27,7 @@ class EducationPage extends StatelessWidget {
               '${AppUtils.formatTime(education.start)} - ${AppUtils.formatTime(education.end)}',
               style: context.textStyleCaption,
             ),
-            SizedBox(height: 12),
+            const SizedBox(height: 12),
             Text(education.description),
           ],
         ),

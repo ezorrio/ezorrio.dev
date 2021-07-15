@@ -10,7 +10,9 @@ import 'package:timelines/timelines.dart';
 class ProjectsPage extends StatelessWidget {
   static const routeName = '/projects';
 
-  static ProjectsPage instance() => ProjectsPage();
+  const ProjectsPage({Key? key}) : super(key: key);
+
+  static ProjectsPage instance() => const ProjectsPage();
 
   Widget projectItem(BuildContext context, Project project) =>
       AppWidgets.infoCard(
@@ -24,9 +26,9 @@ class ProjectsPage extends StatelessWidget {
               '${AppUtils.formatTime(project.start!)} - ${AppUtils.formatTime(project.end!)}',
               style: context.textStyleCaption,
             ),
-            SizedBox(height: 12),
+            const SizedBox(height: 12),
             Text(project.description),
-            SizedBox(height: 12),
+            const SizedBox(height: 12),
             Wrap(children: [
               ...project.tags.map(
                 (e) => Padding(

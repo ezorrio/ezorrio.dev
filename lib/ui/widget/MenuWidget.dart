@@ -8,21 +8,23 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-class AppDrawer extends StatefulWidget {
+class MenuWidget extends StatefulWidget {
   final bool isCompact;
   final List<AppPlace> pageList;
   final AppPlace? currentPage;
 
-  AppDrawer(
+  const MenuWidget(
       {required this.isCompact,
       required this.pageList,
-      required this.currentPage});
+      required this.currentPage,
+      Key? key})
+      : super(key: key);
 
   @override
-  AppDrawerState createState() => AppDrawerState();
+  MenuWidgetState createState() => MenuWidgetState();
 }
 
-class AppDrawerState extends State<AppDrawer> {
+class MenuWidgetState extends State<MenuWidget> {
   @override
   void initState() {
     super.initState();
@@ -58,7 +60,7 @@ class AppDrawerState extends State<AppDrawer> {
                 color: isActive ? context.additionalColor : null,
                 size: 24,
               ),
-              SizedBox(width: 8),
+              const SizedBox(width: 8),
               Text(
                 pageToOpen.title,
                 style: context.textStyleBody1
@@ -108,7 +110,7 @@ class AppDrawerState extends State<AppDrawer> {
             networkLinks:
                 RepositoryProvider.of<DataRepository>(context).networkLinks,
           ),
-          SizedBox(height: 8),
+          const SizedBox(height: 8),
           Card(
             child: ListView.builder(
               shrinkWrap: true,

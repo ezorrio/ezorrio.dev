@@ -12,7 +12,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
 part 'NavigationEvent.dart';
-
 part 'NavigationState.dart';
 
 class NavigationBloc extends Bloc<NavigationEvent, NavigationState> {
@@ -20,7 +19,7 @@ class NavigationBloc extends Bloc<NavigationEvent, NavigationState> {
   late AppPlace currentPage;
   late StreamSubscription navigationSubscription;
 
-  NavigationBloc() : super(NavigationState(currentPage: Places.INTRO));
+  NavigationBloc() : super(NavigationState(currentPage: Places.intro));
 
   @override
   Future<void> close() async {
@@ -33,17 +32,17 @@ class NavigationBloc extends Bloc<NavigationEvent, NavigationState> {
     if (event is AppPageOpened) {
       switch (event.routeName) {
         case EducationPage.routeName:
-          currentPage = Places.EDUCATION;
+          currentPage = Places.education;
           break;
         case WorkPage.routeName:
-          currentPage = Places.WORK;
+          currentPage = Places.work;
           break;
         case ProjectsPage.routeName:
-          currentPage = Places.PROJECTS;
+          currentPage = Places.projects;
           break;
         case IntroPage.routeName:
         default:
-          currentPage = Places.INTRO;
+          currentPage = Places.intro;
           break;
       }
     }

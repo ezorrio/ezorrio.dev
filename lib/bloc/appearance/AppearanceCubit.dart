@@ -6,7 +6,7 @@ import 'AppearanceState.dart';
 class AppearanceCubit extends Cubit<AppearanceState> {
   SettingsRepository repository;
 
-  AppearanceCubit({required this.repository}) : super(System()) {
+  AppearanceCubit({required this.repository}) : super(const System()) {
     initSettings();
   }
 
@@ -15,31 +15,31 @@ class AppearanceCubit extends Cubit<AppearanceState> {
   }
 
   void systemChose() async {
-    await repository.storeThemePreference(theme: AppTheme.SYSTEM);
-    emit(System());
+    await repository.storeThemePreference(theme: AppTheme.system);
+    emit(const System());
   }
 
   void darkManualChose() async {
-    await repository.storeThemePreference(theme: AppTheme.DARK);
-    emit(Dark());
+    await repository.storeThemePreference(theme: AppTheme.dark);
+    emit(const Dark());
   }
 
   void lightManualChose() async {
-    await repository.storeThemePreference(theme: AppTheme.LIGHT);
-    emit(Light());
+    await repository.storeThemePreference(theme: AppTheme.light);
+    emit(const Light());
   }
 
   void initSettings() async {
     final theme = await repository.getTheme();
     switch (theme) {
-      case AppTheme.LIGHT:
-        emit(Light());
+      case AppTheme.light:
+        emit(const Light());
         break;
-      case AppTheme.DARK:
-        emit(Dark());
+      case AppTheme.dark:
+        emit(const Dark());
         break;
-      case AppTheme.SYSTEM:
-        emit(System());
+      case AppTheme.system:
+        emit(const System());
         break;
     }
   }

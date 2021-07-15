@@ -9,20 +9,20 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import 'AppDrawer.dart';
+import 'MenuWidget.dart';
 
-class DrawerLayout extends StatefulWidget {
+class BaseLayout extends StatefulWidget {
   final Widget child;
 
-  DrawerLayout({required this.child});
+  const BaseLayout({required this.child, Key? key}) : super(key: key);
 
   @override
-  State<StatefulWidget> createState() => DrawerLayoutState();
+  State<StatefulWidget> createState() => BaseLayoutState();
 }
 
-class DrawerLayoutState extends State<DrawerLayout> {
+class BaseLayoutState extends State<BaseLayout> {
   List<AppPlace> get menuContent =>
-      [Places.INTRO, Places.EDUCATION, Places.WORK, Places.PROJECTS];
+      [Places.intro, Places.education, Places.work, Places.projects];
 
   Widget mobileLayout({required AppPlace? page}) => Column(
         mainAxisSize: MainAxisSize.max,
@@ -34,8 +34,8 @@ class DrawerLayoutState extends State<DrawerLayout> {
 
   Widget drawer({required bool isCompact, required AppPlace? page}) => SafeArea(
         child: LimitedBox(
-          maxWidth: Constants.DESKTOP_MENU_SIZE,
-          child: AppDrawer(
+          maxWidth: Constants.desktopMenuSize,
+          child: MenuWidget(
               isCompact: isCompact, pageList: menuContent, currentPage: page),
         ),
       );
@@ -48,8 +48,8 @@ class DrawerLayoutState extends State<DrawerLayout> {
             drawer(isCompact: false, page: page),
             Flexible(
               child: ConstrainedBox(
-                constraints:
-                    BoxConstraints(maxWidth: Constants.DESKTOP_MENU_SIZE * 2),
+                constraints: const BoxConstraints(
+                    maxWidth: Constants.desktopMenuSize * 2),
                 child: widget.child,
               ),
             ),

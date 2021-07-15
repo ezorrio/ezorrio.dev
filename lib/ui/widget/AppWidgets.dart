@@ -17,10 +17,10 @@ class AppWidgets {
       );
 
   static Widget poweredByFlutter({required BuildContext context}) => IconButton(
-        icon: FlutterLogo(),
-        onPressed: () async => await canLaunch(Constants.FLUTTER_URL)
-            ? await launch(Constants.FLUTTER_URL)
-            : throw 'Could not launch ${Constants.FLUTTER_URL}',
+        icon: const FlutterLogo(),
+        onPressed: () async => await canLaunch(Constants.flutterUrl)
+            ? await launch(Constants.flutterUrl)
+            : throw 'Could not launch ${Constants.flutterUrl}',
       );
 
   static Widget infoCard(
@@ -30,7 +30,7 @@ class AppWidgets {
       Card(
         clipBehavior: Clip.antiAlias,
         child: Padding(
-          padding: EdgeInsets.all(16),
+          padding: const EdgeInsets.all(16),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             mainAxisSize: MainAxisSize.min,
@@ -39,7 +39,7 @@ class AppWidgets {
                   style: context.textStyleTitle.copyWith(
                       color: context.primaryColor,
                       fontWeight: FontWeight.bold)),
-              SizedBox(height: 16),
+              const SizedBox(height: 16),
               content,
             ],
           ),
@@ -55,23 +55,23 @@ class AppWidgets {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               IconButton(
-                  icon: Icon(Icons.wb_sunny_outlined),
+                  icon: const Icon(Icons.wb_sunny_outlined),
                   disabledColor: context.primaryColor,
-                  onPressed: !(state is Light)
+                  onPressed: state is! Light
                       ? () => BlocProvider.of<AppearanceCubit>(context)
                           .lightManualChose()
                       : null),
               IconButton(
-                  icon: Icon(Icons.nightlight_round),
+                  icon: const Icon(Icons.nightlight_round),
                   disabledColor: context.primaryColor,
-                  onPressed: !(state is Dark)
+                  onPressed: state is! Dark
                       ? () => BlocProvider.of<AppearanceCubit>(context)
                           .darkManualChose()
                       : null),
               IconButton(
-                  icon: Icon(Icons.brightness_auto_outlined),
+                  icon: const Icon(Icons.brightness_auto_outlined),
                   disabledColor: context.primaryColor,
-                  onPressed: !(state is System)
+                  onPressed: state is! System
                       ? () => BlocProvider.of<AppearanceCubit>(context)
                           .systemChose()
                       : null),

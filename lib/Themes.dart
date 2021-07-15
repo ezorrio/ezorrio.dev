@@ -6,7 +6,7 @@ class AppColors {
 }
 
 class Themes {
-  static final appPageTransitions = PageTransitionsTheme(builders: {
+  static const appPageTransitions = PageTransitionsTheme(builders: {
     TargetPlatform.macOS: FadeUpwardsPageTransitionsBuilder(),
     TargetPlatform.windows: FadeUpwardsPageTransitionsBuilder(),
     TargetPlatform.linux: FadeUpwardsPageTransitionsBuilder(),
@@ -21,13 +21,9 @@ class Themes {
         cardTheme: CardTheme(
             color: Colors.grey.shade50,
             shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(12))),
+                borderRadius: BorderRadius.circular(24))),
         scaffoldBackgroundColor: Colors.white,
         pageTransitionsTheme: appPageTransitions,
-        buttonBarTheme: ButtonBarThemeData(
-            buttonHeight: 40,
-            alignment: MainAxisAlignment.center,
-            mainAxisSize: MainAxisSize.max),
         fontFamily: GoogleFonts.montserrat().fontFamily,
       );
 
@@ -39,14 +35,10 @@ class Themes {
         cardTheme: CardTheme(
           color: Colors.grey.shade900,
           shape:
-              RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+              RoundedRectangleBorder(borderRadius: BorderRadius.circular(24)),
         ),
         scaffoldBackgroundColor: Colors.grey.shade800,
         pageTransitionsTheme: appPageTransitions,
-        buttonBarTheme: ButtonBarThemeData(
-            buttonHeight: 40,
-            alignment: MainAxisAlignment.center,
-            mainAxisSize: MainAxisSize.max),
         fontFamily: GoogleFonts.montserrat().fontFamily,
       );
 }

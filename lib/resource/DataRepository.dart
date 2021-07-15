@@ -9,17 +9,33 @@ class DataRepository {
   DateTime birth = DateTime(1998, 1, 3);
   String nickname = 'ezorrio';
   String location = 'Vienna, Austria';
-  String bio = 'Write 💻... Sleep 😴... Repeat 🔁';
-  String study_place = 'University of Vienna';
-  String study_field = 'MSc Data Science';
-  String job_place = 'wheel.me';
-  String job_title = 'Lead Flutter Developer';
+  String bio = 'Code 💻... Sleep 😴... Repeat 🔁';
+  String studyPlace = 'University of Vienna';
+  String studyField = 'MSc Data Science';
+  String jobPlace = 'wheel.me';
+  String jobTitle = 'Lead Flutter Developer';
   SocialNetworkLinks networkLinks = SocialNetworkLinks();
+
+  static List<String> univiennaCourses = [
+    'Parallel Computing',
+    'Parallel Architectures and Programming Models',
+    'Numerical Algorithms',
+    'Natural Language Processing',
+    'Mining Massive Data',
+    'Foundations of Data Analysis',
+    'Data Mining',
+    'Combinatorial and Numerical Algorithms',
+    'Business Intelligence 1',
+    'Algorithms and Data Structures 2',
+    'Advanced Software Engineering',
+    'Advanced Algorithms',
+  ];
+
   List<Education> education = [
     Education(
         place: 'University of Vienna',
         occupation: 'Master of Computer/Data Science',
-        description: '...',
+        description: 'Passed courses: \n${univiennaCourses.join('\n')}',
         start: DateTime(2020, 3),
         end: DateTime.now()),
     Education(
@@ -286,13 +302,13 @@ class DataRepository {
 }
 
 class SocialNetworkLinks {
-  static String NICKNAME = 'ezorrio';
+  static String nickname = 'ezorrio';
 
-  String facebook = 'https://fb.com/$NICKNAME';
-  String instagram = 'https://instagram.com/$NICKNAME';
-  String email = 'mailto:$NICKNAME@gmail.com';
-  String linkedin = 'https://linkedin.com/$NICKNAME';
-  String telegram = 'https://t.me/$NICKNAME';
-  String github = 'https://github.com/$NICKNAME';
-  String twitter = 'https://twitter.com/$NICKNAME';
+  String facebook = 'https://fb.com/$nickname';
+  String instagram = 'https://instagram.com/$nickname';
+  String email = 'mailto:$nickname@gmail.com';
+  String linkedin = 'https://linkedin.com/$nickname';
+  String telegram = 'https://t.me/$nickname';
+  String github = 'https://github.com/$nickname';
+  String twitter = 'https://twitter.com/$nickname';
 }

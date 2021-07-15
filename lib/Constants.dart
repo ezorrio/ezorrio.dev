@@ -1,4 +1,4 @@
 class Constants {
-  static const FLUTTER_URL = 'https://flutter.dev';
-  static const DESKTOP_MENU_SIZE = 300.0;
+  static const flutterUrl = 'https://flutter.dev';
+  static const desktopMenuSize = 300.0;
 }

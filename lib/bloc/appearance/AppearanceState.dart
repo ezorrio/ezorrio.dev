@@ -11,19 +11,19 @@ class AppearanceState with _$AppearanceState {
   const factory AppearanceState.system() = System;
 }
 
-enum AppTheme { LIGHT, DARK, SYSTEM }
+enum AppTheme { light, dark, system }
 
 extension AppThemeExt on AppTheme {
   static AppTheme fromValue(int? index) {
     switch (index) {
       case 0:
-        return AppTheme.LIGHT;
+        return AppTheme.light;
       case 1:
-        return AppTheme.DARK;
+        return AppTheme.dark;
       case 2:
-        return AppTheme.SYSTEM;
+        return AppTheme.system;
       default:
-        return AppTheme.SYSTEM;
+        return AppTheme.system;
     }
   }
 }

@@ -8,7 +8,9 @@ import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 class IntroPage extends StatefulWidget {
   static const routeName = '/intro';
 
-  static IntroPage instance() => IntroPage();
+  const IntroPage({Key? key}) : super(key: key);
+
+  static IntroPage instance() => const IntroPage();
 
   @override
   IntroPageState createState() => IntroPageState();
@@ -62,11 +64,11 @@ class IntroPageState extends State<IntroPage> {
         addRepaintBoundaries: false,
         restorationId: 'intro',
         crossAxisCount: AppUtils.isCompact(context: context) ? 1 : 2,
-        staggeredTiles: [
-          const StaggeredTile.fit(1),
-          const StaggeredTile.fit(1),
-          const StaggeredTile.fit(1),
-          const StaggeredTile.fit(1),
+        staggeredTiles: const [
+          StaggeredTile.fit(1),
+          StaggeredTile.fit(1),
+          StaggeredTile.fit(1),
+          StaggeredTile.fit(1),
         ],
         children: [
           welcomeCard(),

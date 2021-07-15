@@ -11,22 +11,24 @@ class SocialNetworks extends StatelessWidget {
   final String github;
   final String email;
 
-  final IconData twitter_icon = FontAwesomeIcons.twitter;
-  final IconData instagram_icon = FontAwesomeIcons.instagram;
-  final IconData facebook_icon = FontAwesomeIcons.facebook;
-  final IconData telegram_icon = FontAwesomeIcons.telegram;
-  final IconData linkedin_icon = FontAwesomeIcons.linkedin;
-  final IconData github_icon = FontAwesomeIcons.github;
-  final IconData email_icon = Icons.email;
+  final IconData twitterIcon = FontAwesomeIcons.twitter;
+  final IconData instagramIcon = FontAwesomeIcons.instagram;
+  final IconData facebookIcon = FontAwesomeIcons.facebook;
+  final IconData telegramIcon = FontAwesomeIcons.telegram;
+  final IconData linkedinIcon = FontAwesomeIcons.linkedin;
+  final IconData githubIcon = FontAwesomeIcons.github;
+  final IconData emailIcon = Icons.email;
 
-  SocialNetworks(
+  const SocialNetworks(
       {required this.twitter,
       required this.instagram,
       required this.facebook,
       required this.telegram,
       required this.linkedin,
       required this.github,
-      required this.email});
+      required this.email,
+      Key? key})
+      : super(key: key);
 
   Widget socialNetworkButton({required IconData icon, required String link}) =>
       IconButton(
@@ -43,12 +45,12 @@ class SocialNetworks extends StatelessWidget {
   Widget build(BuildContext context) => Row(
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: [
-          socialNetworkButton(icon: email_icon, link: email),
-          socialNetworkButton(icon: facebook_icon, link: facebook),
-          socialNetworkButton(icon: github_icon, link: github),
-          socialNetworkButton(icon: instagram_icon, link: instagram),
-          socialNetworkButton(icon: linkedin_icon, link: linkedin),
-          socialNetworkButton(icon: telegram_icon, link: telegram),
+          socialNetworkButton(icon: emailIcon, link: email),
+          socialNetworkButton(icon: facebookIcon, link: facebook),
+          socialNetworkButton(icon: githubIcon, link: github),
+          socialNetworkButton(icon: instagramIcon, link: instagram),
+          socialNetworkButton(icon: linkedinIcon, link: linkedin),
+          socialNetworkButton(icon: telegramIcon, link: telegram),
         ],
       );
 }

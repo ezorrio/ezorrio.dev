@@ -12,7 +12,9 @@ import 'package:timelines/timelines.dart';
 class WorkPage extends StatelessWidget {
   static const routeName = '/work';
 
-  static WorkPage instance() => WorkPage();
+  const WorkPage({Key? key}) : super(key: key);
+
+  static WorkPage instance() => const WorkPage();
 
   Widget projectItem(BuildContext context, Project project) => Column(
         mainAxisSize: MainAxisSize.min,
@@ -22,9 +24,9 @@ class WorkPage extends StatelessWidget {
             project.title,
             style: context.textStyleBody1.copyWith(fontWeight: FontWeight.bold),
           ),
-          SizedBox(height: 12),
+          const SizedBox(height: 12),
           Text(project.description),
-          SizedBox(height: 12),
+          const SizedBox(height: 12),
           Wrap(
             children: [
               ...project.tags.map(

@@ -18,13 +18,15 @@ class ProfileHeader extends StatelessWidget {
   final String nickname;
   final SocialNetworkLinks networkLinks;
 
-  ProfileHeader(
+  const ProfileHeader(
       {required this.isCompact,
       required this.name,
       required this.bio,
       required this.photoUrl,
       required this.nickname,
-      required this.networkLinks});
+      required this.networkLinks,
+      Key? key})
+      : super(key: key);
 
   Widget _onBottom(Widget child) => Positioned.fill(
         child: Align(
@@ -58,9 +60,9 @@ class ProfileHeader extends StatelessWidget {
                 Text(name, style: context.textStyleTitle),
                 // SizedBox(height: 4),
                 Text('@$nickname', style: context.textStyleCaption),
-                SizedBox(height: 8),
+                const SizedBox(height: 8),
                 Text(bio, style: context.textStyleCaption),
-                SizedBox(height: 4),
+                const SizedBox(height: 4),
                 SocialNetworks(
                     twitter: networkLinks.twitter,
                     instagram: networkLinks.instagram,
@@ -84,13 +86,13 @@ class ProfileHeader extends StatelessWidget {
                 fit: BoxFit.cover,
               ),
             ),
-            SizedBox(height: 4),
+            const SizedBox(height: 4),
             Text(name, style: context.textStyleTitle),
-            SizedBox(height: 8),
+            const SizedBox(height: 8),
             Text('@$nickname', style: context.textStyleBody1),
-            SizedBox(height: 8),
+            const SizedBox(height: 8),
             Text(bio, style: context.textStyleCaption),
-            SizedBox(height: 8),
+            const SizedBox(height: 8),
             SocialNetworks(
                 twitter: networkLinks.twitter,
                 instagram: networkLinks.instagram,
@@ -122,7 +124,7 @@ class ProfileHeader extends StatelessWidget {
             color: AppColors.primary,
           )),
           _onCorner(IconButton(
-            icon: Icon(Icons.bedtime_outlined, size: 16),
+            icon: const Icon(Icons.bedtime_outlined, size: 16),
             onPressed: () => showModalBottomSheet<void>(
                 context: context,
                 builder: (builder) =>

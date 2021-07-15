@@ -5,7 +5,7 @@ import 'package:ezorrio_dev/bloc/navigation/NavigationBloc.dart';
 import 'package:ezorrio_dev/resource/DataRepository.dart';
 import 'package:ezorrio_dev/resource/SettingsRepository.dart';
 import 'package:ezorrio_dev/ui/page/IntroPage.dart';
-import 'package:ezorrio_dev/ui/widget/DrawerLayout.dart';
+import 'package:ezorrio_dev/ui/widget/BaseLayout.dart';
 import 'package:ezorrio_dev/utils/AppUtils.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -95,7 +95,7 @@ void main() {
           create: (BuildContext context) => AppearanceCubit(
               repository: RepositoryProvider.of<SettingsRepository>(context)),
         ),
-      ], child: App()));
+      ], child: const App()));
 
   runApp(app);
 }
@@ -103,6 +103,8 @@ void main() {
 class App extends StatefulWidget {
   static final GlobalKey<NavigatorState> navigatorKey =
       GlobalKey(debugLabel: 'navigator');
+
+  const App({Key? key}) : super(key: key);
 
   @override
   AppState createState() => AppState();
@@ -137,13 +139,13 @@ class AppState extends State<App> with WidgetsBindingObserver, RouteAware {
                   ? Themes.materialTheme()
                   : Themes.materialDarkTheme()),
           child: MaterialApp(
-            localizationsDelegates: <LocalizationsDelegate<dynamic>>[
+            localizationsDelegates: const <LocalizationsDelegate<dynamic>>[
               DefaultMaterialLocalizations.delegate,
               DefaultWidgetsLocalizations.delegate,
               DefaultCupertinoLocalizations.delegate,
             ],
             home: Scaffold(
-              body: DrawerLayout(
+              body: BaseLayout(
                 child: Navigator(
                   initialRoute: IntroPage.routeName,
                   onGenerateRoute: (settings) => Routes.onGenerateRoute(
