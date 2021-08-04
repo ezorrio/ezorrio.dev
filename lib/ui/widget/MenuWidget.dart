@@ -112,6 +112,7 @@ class MenuWidgetState extends State<MenuWidget> {
           ),
           const SizedBox(height: 8),
           Card(
+            clipBehavior: Clip.antiAlias,
             child: ListView.builder(
               shrinkWrap: true,
               scrollDirection:
