@@ -1,5 +1,6 @@
+// coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
 
 part of 'AppearanceState.dart';
 
@@ -42,6 +43,13 @@ mixin _$AppearanceState {
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? light,
+    TResult Function()? dark,
+    TResult Function()? system,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? light,
     TResult Function()? dark,
@@ -54,6 +62,13 @@ mixin _$AppearanceState {
     required TResult Function(Light value) light,
     required TResult Function(Dark value) dark,
     required TResult Function(System value) system,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(Light value)? light,
+    TResult Function(Dark value)? dark,
+    TResult Function(System value)? system,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -111,7 +126,8 @@ class _$Light implements Light {
 
   @override
   bool operator ==(dynamic other) {
-    return identical(this, other) || (other is Light);
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is Light);
   }
 
   @override
@@ -125,6 +141,16 @@ class _$Light implements Light {
     required TResult Function() system,
   }) {
     return light();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? light,
+    TResult Function()? dark,
+    TResult Function()? system,
+  }) {
+    return light?.call();
   }
 
   @override
@@ -149,6 +175,16 @@ class _$Light implements Light {
     required TResult Function(System value) system,
   }) {
     return light(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(Light value)? light,
+    TResult Function(Dark value)? dark,
+    TResult Function(System value)? system,
+  }) {
+    return light?.call(this);
   }
 
   @override
@@ -198,7 +234,8 @@ class _$Dark implements Dark {
 
   @override
   bool operator ==(dynamic other) {
-    return identical(this, other) || (other is Dark);
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is Dark);
   }
 
   @override
@@ -212,6 +249,16 @@ class _$Dark implements Dark {
     required TResult Function() system,
   }) {
     return dark();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? light,
+    TResult Function()? dark,
+    TResult Function()? system,
+  }) {
+    return dark?.call();
   }
 
   @override
@@ -236,6 +283,16 @@ class _$Dark implements Dark {
     required TResult Function(System value) system,
   }) {
     return dark(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(Light value)? light,
+    TResult Function(Dark value)? dark,
+    TResult Function(System value)? system,
+  }) {
+    return dark?.call(this);
   }
 
   @override
@@ -285,7 +342,8 @@ class _$System implements System {
 
   @override
   bool operator ==(dynamic other) {
-    return identical(this, other) || (other is System);
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is System);
   }
 
   @override
@@ -299,6 +357,16 @@ class _$System implements System {
     required TResult Function() system,
   }) {
     return system();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? light,
+    TResult Function()? dark,
+    TResult Function()? system,
+  }) {
+    return system?.call();
   }
 
   @override
@@ -323,6 +391,16 @@ class _$System implements System {
     required TResult Function(System value) system,
   }) {
     return system(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(Light value)? light,
+    TResult Function(Dark value)? dark,
+    TResult Function(System value)? system,
+  }) {
+    return system?.call(this);
   }
 
   @override
