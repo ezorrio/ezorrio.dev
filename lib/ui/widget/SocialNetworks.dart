@@ -46,7 +46,7 @@ class SocialNetworks extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: [
           socialNetworkButton(icon: emailIcon, link: email),
-          socialNetworkButton(icon: facebookIcon, link: facebook),
+          // socialNetworkButton(icon: facebookIcon, link: facebook),
           socialNetworkButton(icon: githubIcon, link: github),
           socialNetworkButton(icon: instagramIcon, link: instagram),
           socialNetworkButton(icon: linkedinIcon, link: linkedin),

@@ -14,16 +14,3 @@ class AppPageOpened extends NavigationEvent {
   @override
   List<Object> get props => [routeName];
 }
-
-class AppPopupOpened extends NavigationEvent {
-  final bool isPreviousPopup;
-  final Route<dynamic>? previousRoute;
-
-  const AppPopupOpened(
-      {required this.isPreviousPopup, required this.previousRoute});
-
-  @override
-  List<Object> get props => [isPreviousPopup];
-}
-
-class AppPopupClosed extends NavigationEvent {}

@@ -6,7 +6,6 @@ import 'package:ezorrio_dev/resource/DataRepository.dart';
 import 'package:ezorrio_dev/ui/widget/AppWidgets.dart';
 import 'package:ezorrio_dev/ui/widget/SocialNetworks.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 
 import 'AnimatedWave.dart';
 

@@ -17,21 +17,18 @@ class Themes {
   static ThemeData materialTheme() => ThemeData(
         brightness: Brightness.light,
         primaryColor: AppColors.primary,
-        accentColor: AppColors.primary,
         cardTheme: CardTheme(
             color: Colors.grey.shade50,
             shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(24))),
         scaffoldBackgroundColor: Colors.white,
         pageTransitionsTheme: appPageTransitions,
-        fontFamily: GoogleFonts.montserrat().fontFamily,
+        fontFamily: GoogleFonts.montserrat().fontFamily, colorScheme: ColorScheme.fromSwatch().copyWith(secondary: AppColors.primary),
       );
 
   static ThemeData materialDarkTheme() => ThemeData(
         brightness: Brightness.dark,
         primaryColor: AppColors.primary,
-        accentColor: AppColors.primary,
-        buttonColor: Colors.grey.shade900,
         cardTheme: CardTheme(
           color: Colors.grey.shade900,
           shape:
@@ -39,6 +36,6 @@ class Themes {
         ),
         scaffoldBackgroundColor: Colors.grey.shade800,
         pageTransitionsTheme: appPageTransitions,
-        fontFamily: GoogleFonts.montserrat().fontFamily,
+        fontFamily: GoogleFonts.montserrat().fontFamily, colorScheme: ColorScheme.fromSwatch().copyWith(secondary: AppColors.primary),
       );
 }

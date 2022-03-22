@@ -7,9 +7,7 @@ import 'package:ezorrio_dev/resource/SettingsRepository.dart';
 import 'package:ezorrio_dev/ui/page/IntroPage.dart';
 import 'package:ezorrio_dev/ui/widget/BaseLayout.dart';
 import 'package:ezorrio_dev/utils/AppUtils.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import 'bloc/appearance/AppearanceState.dart';
@@ -18,19 +16,6 @@ class AppRouteObserver extends RouteObserver<PageRoute<dynamic>> {
   NavigationBloc bloc;
 
   AppRouteObserver({required this.bloc});
-
-  @override
-  void didPush(Route<dynamic> route, Route<dynamic>? previousRoute) {
-    super.didPush(route, previousRoute);
-    if (route is PageRoute) {
-      bloc.add(AppPageOpened(routeName: (route.settings.name)!));
-    }
-    if (route is PopupRoute) {
-      bloc.add(AppPopupOpened(
-          isPreviousPopup: previousRoute is PopupRoute,
-          previousRoute: previousRoute));
-    }
-  }
 
   @override
   void didReplace({Route<dynamic>? newRoute, Route<dynamic>? oldRoute}) {
@@ -45,13 +30,6 @@ class AppRouteObserver extends RouteObserver<PageRoute<dynamic>> {
     super.didPop(route, previousRoute);
     if (previousRoute is PageRoute) {
       bloc.add(AppPageOpened(routeName: (previousRoute.settings.name)!));
-    }
-    if (route is PopupRoute) {
-      bloc.add(AppPopupClosed());
-    }
-    if (previousRoute is PopupRoute) {
-      bloc.add(AppPopupOpened(
-          isPreviousPopup: route is PopupRoute, previousRoute: previousRoute));
     }
   }
 }
@@ -121,7 +99,6 @@ class AppState extends State<App> with WidgetsBindingObserver, RouteAware {
             localizationsDelegates: const <LocalizationsDelegate<dynamic>>[
               DefaultMaterialLocalizations.delegate,
               DefaultWidgetsLocalizations.delegate,
-              DefaultCupertinoLocalizations.delegate,
             ],
             home: Scaffold(
               body: BaseLayout(

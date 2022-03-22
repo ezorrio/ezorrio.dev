@@ -5,7 +5,6 @@ import 'package:ezorrio_dev/resource/DataRepository.dart';
 import 'package:ezorrio_dev/ui/widget/AppWidgets.dart';
 import 'package:ezorrio_dev/utils/AppUtils.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:timelines/timelines.dart';
 

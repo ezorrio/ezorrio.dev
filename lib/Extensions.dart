@@ -1,6 +1,4 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 
 extension ContextExt on BuildContext {
   TextStyle get textStyleTitle => Theme.of(this).textTheme.headline6!;
@@ -17,7 +15,7 @@ extension ContextExt on BuildContext {
 
   Color get primaryColor => Theme.of(this).primaryColor;
 
-  Color get additionalColor => Theme.of(this).accentColor;
+  Color get additionalColor => Theme.of(this).colorScheme.secondary;
 
   Color get dividerColor => Theme.of(this).dividerColor;
 }
