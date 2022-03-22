@@ -1,7 +1,4 @@
-import 'dart:math';
-
 import 'package:ezorrio_dev/Extensions.dart';
-import 'package:ezorrio_dev/Themes.dart';
 import 'package:ezorrio_dev/resource/DataRepository.dart';
 import 'package:ezorrio_dev/ui/widget/AppWidgets.dart';
 import 'package:ezorrio_dev/ui/widget/SocialNetworks.dart';

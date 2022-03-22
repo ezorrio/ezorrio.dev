@@ -3,7 +3,6 @@ import 'package:ezorrio_dev/Places.dart';
 import 'package:ezorrio_dev/bloc/navigation/NavigationBloc.dart';
 import 'package:ezorrio_dev/main.dart';
 import 'package:ezorrio_dev/model/AppPlace.dart';
-import 'package:ezorrio_dev/ui/widget/AppWidgets.dart';
 import 'package:ezorrio_dev/utils/AppUtils.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
