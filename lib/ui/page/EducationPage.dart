@@ -15,21 +15,24 @@ class EducationPage extends StatelessWidget {
   static EducationPage instance() => const EducationPage();
 
   Widget projectItem(BuildContext context, Education education) =>
-      AppWidgets.infoCard(
+      AppWidgets.conditionalPadding(
         context: context,
-        title: education.place,
-        content: Column(
-          mainAxisSize: MainAxisSize.min,
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text(education.occupation),
-            Text(
-              '${AppUtils.formatTime(education.start)} - ${AppUtils.formatTime(education.end)}',
-              style: context.textStyleCaption,
-            ),
-            const SizedBox(height: 12),
-            Text(education.description),
-          ],
+        child: AppWidgets.infoCard(
+          context: context,
+          title: education.place,
+          content: Column(
+            mainAxisSize: MainAxisSize.min,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(education.occupation),
+              Text(
+                '${AppUtils.formatTime(education.start)} - ${AppUtils.formatTime(education.end)}',
+                style: context.textStyleCaption,
+              ),
+              const SizedBox(height: 12),
+              Text(education.description),
+            ],
+          ),
         ),
       );
 

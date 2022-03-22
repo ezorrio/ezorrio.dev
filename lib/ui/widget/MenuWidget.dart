@@ -2,6 +2,7 @@ import 'package:ezorrio_dev/Extensions.dart';
 import 'package:ezorrio_dev/main.dart';
 import 'package:ezorrio_dev/model/AppPlace.dart';
 import 'package:ezorrio_dev/resource/DataRepository.dart';
+import 'package:ezorrio_dev/ui/widget/AppWidgets.dart';
 import 'package:ezorrio_dev/ui/widget/ProfileHeader.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -71,30 +72,34 @@ class MenuWidgetState extends State<MenuWidget> {
         ),
       );
 
-  Widget mainDrawerCompact(BuildContext context) => Card(
-        child: Column(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            ProfileHeader(
-              isCompact: widget.isCompact,
-              name: RepositoryProvider.of<DataRepository>(context).name,
-              bio: RepositoryProvider.of<DataRepository>(context).bio,
-              photoUrl: RepositoryProvider.of<DataRepository>(context).photo,
-              nickname: RepositoryProvider.of<DataRepository>(context).nickname,
-              networkLinks:
-                  RepositoryProvider.of<DataRepository>(context).networkLinks,
-            ),
-            LimitedBox(
-              maxHeight: 40,
-              child: ListView.builder(
-                  scrollDirection:
-                      widget.isCompact ? Axis.horizontal : Axis.vertical,
-                  itemCount: widget.pageList.length,
-                  itemBuilder: (_, item) => _drawerItemCompact(
-                      pageToOpen: widget.pageList[item],
-                      isActive: widget.currentPage == widget.pageList[item])),
-            ),
-          ],
+  Widget mainDrawerCompact(BuildContext context) => AppWidgets.conditionalPadding(
+        context: context,
+        child: Card(
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              ProfileHeader(
+                isCompact: widget.isCompact,
+                name: RepositoryProvider.of<DataRepository>(context).name,
+                bio: RepositoryProvider.of<DataRepository>(context).bio,
+                photoUrl: RepositoryProvider.of<DataRepository>(context).photo,
+                nickname:
+                    RepositoryProvider.of<DataRepository>(context).nickname,
+                networkLinks:
+                    RepositoryProvider.of<DataRepository>(context).networkLinks,
+              ),
+              LimitedBox(
+                maxHeight: 40,
+                child: ListView.builder(
+                    scrollDirection:
+                        widget.isCompact ? Axis.horizontal : Axis.vertical,
+                    itemCount: widget.pageList.length,
+                    itemBuilder: (_, item) => _drawerItemCompact(
+                        pageToOpen: widget.pageList[item],
+                        isActive: widget.currentPage == widget.pageList[item])),
+              ),
+            ],
+          ),
         ),
       );
 

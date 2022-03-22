@@ -40,23 +40,27 @@ class WorkPage extends StatelessWidget {
         ],
       );
 
-  Widget workItem(BuildContext context, Work work) => AppWidgets.infoCard(
+  Widget workItem(BuildContext context, Work work) =>
+      AppWidgets.conditionalPadding(
         context: context,
-        title: work.company,
-        content: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            Text(
-              '${work.position} (${AppUtils.formatTime(work.start!)} - ${AppUtils.formatTime(work.end!)})',
-            ),
-            ...work.projects.map(
-              (item) => Padding(
-                padding: const EdgeInsets.symmetric(vertical: 12.0),
-                child: projectItem(context, item),
+        child: AppWidgets.infoCard(
+          context: context,
+          title: work.company,
+          content: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              Text(
+                '${work.position} (${AppUtils.formatTime(work.start!)} - ${AppUtils.formatTime(work.end!)})',
               ),
-            ),
-          ],
+              ...work.projects.map(
+                (item) => Padding(
+                  padding: const EdgeInsets.symmetric(vertical: 12.0),
+                  child: projectItem(context, item),
+                ),
+              ),
+            ],
+          ),
         ),
       );
 

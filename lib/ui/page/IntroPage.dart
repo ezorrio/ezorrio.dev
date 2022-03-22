@@ -59,22 +59,29 @@ class IntroPageState extends State<IntroPage> {
       );
 
   @override
-  Widget build(BuildContext context) => StaggeredGridView.count(
-        addAutomaticKeepAlives: false,
-        addRepaintBoundaries: false,
-        restorationId: 'intro',
+  Widget build(BuildContext context) => StaggeredGrid.count(
         crossAxisCount: AppUtils.isCompact(context: context) ? 1 : 2,
-        staggeredTiles: const [
-          StaggeredTile.fit(1),
-          StaggeredTile.fit(1),
-          StaggeredTile.fit(1),
-          StaggeredTile.fit(1),
-        ],
         children: [
-          welcomeCard(),
-          locationCard(),
-          workCard(),
-          educationCard(),
+          StaggeredGridTile.fit(
+            crossAxisCellCount: 1,
+            child: AppWidgets.conditionalPadding(
+                context: context, child: welcomeCard()),
+          ),
+          StaggeredGridTile.fit(
+            crossAxisCellCount: 1,
+            child: AppWidgets.conditionalPadding(
+                context: context, child: locationCard()),
+          ),
+          StaggeredGridTile.fit(
+            crossAxisCellCount: 1,
+            child: AppWidgets.conditionalPadding(
+                context: context, child: workCard()),
+          ),
+          StaggeredGridTile.fit(
+            crossAxisCellCount: 1,
+            child: AppWidgets.conditionalPadding(
+                context: context, child: educationCard()),
+          ),
         ],
       );
 }

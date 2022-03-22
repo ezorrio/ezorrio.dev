@@ -15,29 +15,33 @@ class ProjectsPage extends StatelessWidget {
   static ProjectsPage instance() => const ProjectsPage();
 
   Widget projectItem(BuildContext context, Project project) =>
-      AppWidgets.infoCard(
+      AppWidgets.conditionalPadding(
         context: context,
-        title: project.title,
-        content: Column(
-          mainAxisSize: MainAxisSize.min,
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text(
-              '${AppUtils.formatTime(project.start!)} - ${AppUtils.formatTime(project.end!)}',
-              style: context.textStyleCaption,
-            ),
-            const SizedBox(height: 12),
-            Text(project.description),
-            const SizedBox(height: 12),
-            Wrap(children: [
-              ...project.tags.map(
-                (e) => Padding(
-                  padding: const EdgeInsets.all(2.0),
-                  child: Chip(label: Text(e, style: context.textStyleCaption)),
-                ),
-              )
-            ]),
-          ],
+        child: AppWidgets.infoCard(
+          context: context,
+          title: project.title,
+          content: Column(
+            mainAxisSize: MainAxisSize.min,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                '${AppUtils.formatTime(project.start!)} - ${AppUtils.formatTime(project.end!)}',
+                style: context.textStyleCaption,
+              ),
+              const SizedBox(height: 12),
+              Text(project.description),
+              const SizedBox(height: 12),
+              Wrap(children: [
+                ...project.tags.map(
+                  (e) => Padding(
+                    padding: const EdgeInsets.all(2.0),
+                    child:
+                        Chip(label: Text(e, style: context.textStyleCaption)),
+                  ),
+                )
+              ]),
+            ],
+          ),
         ),
       );
 

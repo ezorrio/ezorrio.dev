@@ -23,10 +23,11 @@ class AppWidgets {
             : throw 'Could not launch ${Constants.flutterUrl}',
       );
 
-  static Widget infoCard(
-          {required BuildContext context,
-          required String title,
-          required Widget content}) =>
+  static Widget infoCard({
+    required BuildContext context,
+    required String title,
+    required Widget content,
+  }) =>
       Card(
         clipBehavior: Clip.antiAlias,
         child: Padding(
@@ -78,5 +79,16 @@ class AppWidgets {
             ],
           ),
         ),
+      );
+
+  static Widget conditionalPadding({
+    required BuildContext context,
+    required Widget child,
+  }) =>
+      Padding(
+        padding: AppUtils.isCompact(context: context)
+            ? const EdgeInsets.all(8.0)
+            : EdgeInsets.zero,
+        child: child,
       );
 }

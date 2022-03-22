@@ -56,28 +56,7 @@ class AppRouteObserver extends RouteObserver<PageRoute<dynamic>> {
   }
 }
 
-class SimpleBlocObserver extends BlocObserver {
-  @override
-  void onEvent(Bloc bloc, Object? event) {
-    debugPrint('(${bloc.runtimeType}): ${event.toString()}');
-    super.onEvent(bloc, event);
-  }
-
-  @override
-  void onTransition(Bloc bloc, Transition transition) {
-    debugPrint('(${bloc.runtimeType}): ${transition.toString()}');
-    super.onTransition(bloc, transition);
-  }
-
-  @override
-  void onError(BlocBase bloc, Object error, StackTrace stackTrace) {
-    debugPrint('${bloc.runtimeType}, ${stackTrace.toString()}');
-    super.onError(bloc, error, stackTrace);
-  }
-}
-
 void main() {
-  Bloc.observer = SimpleBlocObserver();
   var app = MultiRepositoryProvider(
       providers: [
         RepositoryProvider<SettingsRepository>(
