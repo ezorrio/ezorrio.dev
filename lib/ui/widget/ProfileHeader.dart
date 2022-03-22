@@ -7,8 +7,6 @@ import 'package:ezorrio_dev/ui/widget/AppWidgets.dart';
 import 'package:ezorrio_dev/ui/widget/SocialNetworks.dart';
 import 'package:flutter/material.dart';
 
-import 'AnimatedWave.dart';
-
 class ProfileHeader extends StatelessWidget {
   final bool isCompact;
   final String photoUrl;
@@ -27,13 +25,6 @@ class ProfileHeader extends StatelessWidget {
       Key? key})
       : super(key: key);
 
-  Widget _onBottom(Widget child) => Positioned.fill(
-        child: Align(
-          alignment: Alignment.bottomCenter,
-          child: child,
-        ),
-      );
-
   Widget _onCorner(Widget child) => Positioned.fill(
         child: Align(
           alignment: Alignment.topRight,
@@ -43,7 +34,7 @@ class ProfileHeader extends StatelessWidget {
 
   Widget profile(BuildContext context) => isCompact
       ? Row(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          mainAxisAlignment: MainAxisAlignment.start,
           children: [
             ClipOval(
               child: Image.network(
@@ -55,6 +46,7 @@ class ProfileHeader extends StatelessWidget {
             ),
             Column(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(name, style: context.textStyleTitle),
                 // SizedBox(height: 4),
@@ -105,23 +97,6 @@ class ProfileHeader extends StatelessWidget {
 
   Widget waves(BuildContext context) => Stack(
         children: <Widget>[
-          _onBottom(AnimatedWave(
-            height: 20,
-            speed: 1.0,
-            color: AppColors.primary,
-          )),
-          _onBottom(AnimatedWave(
-            height: 60,
-            speed: 0.9,
-            offset: pi,
-            color: AppColors.primary,
-          )),
-          _onBottom(AnimatedWave(
-            height: 40,
-            speed: 1.2,
-            offset: pi / 2,
-            color: AppColors.primary,
-          )),
           _onCorner(IconButton(
             icon: const Icon(Icons.bedtime_outlined, size: 16),
             onPressed: () => showModalBottomSheet<void>(

@@ -46,7 +46,7 @@ class MenuWidgetState extends State<MenuWidget> {
 
   Widget _drawerItemCompact(
           {required AppPlace pageToOpen, bool isActive = false}) =>
-      GestureDetector(
+      InkWell(
         onTap: () => App.navigatorKey.currentState!
             .pushNamedAndRemoveUntil(pageToOpen.routeName, (route) => false),
         child: Padding(
@@ -70,7 +70,8 @@ class MenuWidgetState extends State<MenuWidget> {
         ),
       );
 
-  Widget mainDrawerCompact(BuildContext context) => AppWidgets.conditionalPadding(
+  Widget mainDrawerCompact(BuildContext context) =>
+      AppWidgets.conditionalPadding(
         context: context,
         child: Card(
           child: Column(
@@ -87,8 +88,9 @@ class MenuWidgetState extends State<MenuWidget> {
                     RepositoryProvider.of<DataRepository>(context).networkLinks,
               ),
               LimitedBox(
-                maxHeight: 40,
+                maxHeight: 48,
                 child: ListView.builder(
+                    shrinkWrap: true,
                     scrollDirection:
                         widget.isCompact ? Axis.horizontal : Axis.vertical,
                     itemCount: widget.pageList.length,

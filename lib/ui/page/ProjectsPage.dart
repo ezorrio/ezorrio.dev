@@ -5,7 +5,6 @@ import 'package:ezorrio_dev/ui/widget/AppWidgets.dart';
 import 'package:ezorrio_dev/utils/AppUtils.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:timelines/timelines.dart';
 
 class ProjectsPage extends StatelessWidget {
   static const routeName = '/projects';
@@ -46,17 +45,10 @@ class ProjectsPage extends StatelessWidget {
       );
 
   @override
-  Widget build(BuildContext context) => Timeline.tileBuilder(
-        theme: TimelineThemeData(color: context.primaryColor),
-        builder: TimelineTileBuilder.fromStyle(
-          contentsAlign: ContentsAlign.basic,
-          indicatorStyle: IndicatorStyle.outlined,
-          connectorStyle: ConnectorStyle.dashedLine,
-          contentsBuilder: (context, index) => projectItem(context,
-              RepositoryProvider.of<DataRepository>(context).projects[index]),
-          nodePositionBuilder: (_, __) => 0,
-          itemCount:
-              RepositoryProvider.of<DataRepository>(context).projects.length,
-        ),
+  Widget build(BuildContext context) => ListView.builder(
+        itemBuilder: (_, index) => projectItem(context,
+            RepositoryProvider.of<DataRepository>(context).projects[index]),
+        itemCount:
+            RepositoryProvider.of<DataRepository>(context).projects.length,
       );
 }
