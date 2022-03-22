@@ -101,7 +101,6 @@ class ProfileHeader extends StatelessWidget {
 
   Widget waves(BuildContext context) => Stack(
         children: <Widget>[
-          Positioned.fill(child: AppWidgets.appBackground(context: context)),
           _onCorner(IconButton(
             icon: const Icon(Icons.bedtime_outlined, size: 16),
             onPressed: () => showModalBottomSheet<void>(

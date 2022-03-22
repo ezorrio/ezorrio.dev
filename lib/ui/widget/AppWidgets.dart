@@ -8,14 +8,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class AppWidgets {
-  static Widget appBackground({required BuildContext context}) => Image.asset(
-        AppUtils.isSystemLight(context: context)
-            ? 'drawable/background_light.png'
-            : 'drawable/background_dark.png',
-        filterQuality: FilterQuality.high,
-        repeat: ImageRepeat.repeat,
-      );
-
   static Widget poweredByFlutter({required BuildContext context}) => IconButton(
         icon: const FlutterLogo(),
         onPressed: () async => await canLaunch(Constants.flutterUrl)
@@ -30,24 +22,21 @@ class AppWidgets {
   }) =>
       Card(
         clipBehavior: Clip.antiAlias,
-        child: Stack(children: [
-          Positioned.fill(child: appBackground(context: context)),
-          Padding(
-            padding: const EdgeInsets.all(16),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              mainAxisSize: MainAxisSize.min,
-              children: [
-                Text(title,
-                    style: context.textStyleTitle.copyWith(
-                        color: context.primaryColor,
-                        fontWeight: FontWeight.bold)),
-                const SizedBox(height: 16),
-                content,
-              ],
-            ),
+        child: Padding(
+          padding: const EdgeInsets.all(16),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              Text(title,
+                  style: context.textStyleTitle.copyWith(
+                      color: context.primaryColor,
+                      fontWeight: FontWeight.bold)),
+              const SizedBox(height: 16),
+              content,
+            ],
           ),
-        ]),
+        ),
       );
 
   static Widget themeChooser({required BuildContext context}) => BlocBuilder(

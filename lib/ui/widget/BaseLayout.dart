@@ -3,6 +3,7 @@ import 'package:ezorrio_dev/Places.dart';
 import 'package:ezorrio_dev/bloc/navigation/NavigationBloc.dart';
 import 'package:ezorrio_dev/main.dart';
 import 'package:ezorrio_dev/model/AppPlace.dart';
+import 'package:ezorrio_dev/ui/widget/Cookies.dart';
 import 'package:ezorrio_dev/utils/AppUtils.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
@@ -71,9 +72,12 @@ class BaseLayoutState extends State<BaseLayout> {
             }
             return true;
           },
-          child: AppUtils.isCompact(context: context)
-              ? mobileLayout(page: state.currentPage)
-              : desktopLayout(page: state.currentPage),
+          child: Stack(children: [
+            const Cookies(),
+            AppUtils.isCompact(context: context)
+                ? mobileLayout(page: state.currentPage)
+                : desktopLayout(page: state.currentPage),
+          ]),
         ),
       );
 }
