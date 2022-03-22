@@ -59,29 +59,31 @@ class IntroPageState extends State<IntroPage> {
       );
 
   @override
-  Widget build(BuildContext context) => StaggeredGrid.count(
-        crossAxisCount: AppUtils.isCompact(context: context) ? 1 : 2,
-        children: [
-          StaggeredGridTile.fit(
-            crossAxisCellCount: 1,
-            child: AppWidgets.conditionalPadding(
-                context: context, child: welcomeCard()),
-          ),
-          StaggeredGridTile.fit(
-            crossAxisCellCount: 1,
-            child: AppWidgets.conditionalPadding(
-                context: context, child: locationCard()),
-          ),
-          StaggeredGridTile.fit(
-            crossAxisCellCount: 1,
-            child: AppWidgets.conditionalPadding(
-                context: context, child: workCard()),
-          ),
-          StaggeredGridTile.fit(
-            crossAxisCellCount: 1,
-            child: AppWidgets.conditionalPadding(
-                context: context, child: educationCard()),
-          ),
-        ],
+  Widget build(BuildContext context) => SingleChildScrollView(
+        child: StaggeredGrid.count(
+          crossAxisCount: AppUtils.isCompact(context: context) ? 1 : 2,
+          children: [
+            StaggeredGridTile.fit(
+              crossAxisCellCount: 1,
+              child: AppWidgets.conditionalPadding(
+                  context: context, child: welcomeCard()),
+            ),
+            StaggeredGridTile.fit(
+              crossAxisCellCount: 1,
+              child: AppWidgets.conditionalPadding(
+                  context: context, child: locationCard()),
+            ),
+            StaggeredGridTile.fit(
+              crossAxisCellCount: 1,
+              child: AppWidgets.conditionalPadding(
+                  context: context, child: workCard()),
+            ),
+            StaggeredGridTile.fit(
+              crossAxisCellCount: 1,
+              child: AppWidgets.conditionalPadding(
+                  context: context, child: educationCard()),
+            ),
+          ],
+        ),
       );
 }
