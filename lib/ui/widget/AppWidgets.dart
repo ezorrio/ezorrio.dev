@@ -30,21 +30,24 @@ class AppWidgets {
   }) =>
       Card(
         clipBehavior: Clip.antiAlias,
-        child: Padding(
-          padding: const EdgeInsets.all(16),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              Text(title,
-                  style: context.textStyleTitle.copyWith(
-                      color: context.primaryColor,
-                      fontWeight: FontWeight.bold)),
-              const SizedBox(height: 16),
-              content,
-            ],
+        child: Stack(children: [
+          Positioned.fill(child: appBackground(context: context)),
+          Padding(
+            padding: const EdgeInsets.all(16),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                Text(title,
+                    style: context.textStyleTitle.copyWith(
+                        color: context.primaryColor,
+                        fontWeight: FontWeight.bold)),
+                const SizedBox(height: 16),
+                content,
+              ],
+            ),
           ),
-        ),
+        ]),
       );
 
   static Widget themeChooser({required BuildContext context}) => BlocBuilder(

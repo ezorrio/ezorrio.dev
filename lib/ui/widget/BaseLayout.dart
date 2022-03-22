@@ -72,14 +72,9 @@ class BaseLayoutState extends State<BaseLayout> {
             }
             return true;
           },
-          child: Stack(children: [
-            Positioned.fill(
-              child: AppWidgets.appBackground(context: context),
-            ),
-            AppUtils.isCompact(context: context)
-                ? mobileLayout(page: state.currentPage)
-                : desktopLayout(page: state.currentPage),
-          ]),
+          child: AppUtils.isCompact(context: context)
+              ? mobileLayout(page: state.currentPage)
+              : desktopLayout(page: state.currentPage),
         ),
       );
 }
