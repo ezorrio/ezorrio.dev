@@ -34,7 +34,7 @@ class AppWidgets {
                 children: [
                   Expanded(
                     child: Text(title,
-                        style: context.textStyleTitle.copyWith(
+                        style: context.textStyleBody1.copyWith(
                             color: context.primaryColor,
                             fontWeight: FontWeight.bold)),
                   ),

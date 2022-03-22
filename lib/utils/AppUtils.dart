@@ -13,7 +13,7 @@ class AppUtils {
       FocusScope.of(context).requestFocus(FocusNode());
 
   static String formatTime(DateTime? time) => time != null
-      ? time.difference(DateTime.now()) < const Duration(days: 1)
+      ? DateTime.now().difference(time) < const Duration(days: 1)
           ? 'now'
           : DateFormat('yyyy/MM').format(time)
       : '?';

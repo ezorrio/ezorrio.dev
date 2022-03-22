@@ -49,8 +49,10 @@ class WorkPage extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             mainAxisSize: MainAxisSize.min,
             children: [
+              Text(work.position),
               Text(
-                '${work.position} (${AppUtils.formatTime(work.start!)} - ${AppUtils.formatTime(work.end!)})',
+                '${AppUtils.formatTime(work.start)} - ${AppUtils.formatTime(work.end)}',
+                style: context.textStyleCaption,
               ),
               ...work.projects.map(
                 (item) => Padding(
