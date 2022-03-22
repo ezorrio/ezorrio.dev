@@ -70,7 +70,7 @@ class MenuWidgetState extends State<MenuWidget> {
         ),
       );
 
-  Widget mainDrawerCompact(BuildContext context) =>
+  Widget mainDrawerCompact() =>
       AppWidgets.conditionalPadding(
         context: context,
         child: Card(
@@ -103,7 +103,7 @@ class MenuWidgetState extends State<MenuWidget> {
         ),
       );
 
-  Widget mainDrawer(BuildContext context) => Column(
+  Widget mainDrawer() => Column(
         mainAxisSize: MainAxisSize.max,
         children: [
           ProfileHeader(
@@ -132,5 +132,5 @@ class MenuWidgetState extends State<MenuWidget> {
 
   @override
   Widget build(BuildContext context) =>
-      widget.isCompact ? mainDrawerCompact(context) : mainDrawer(context);
+      widget.isCompact ? mainDrawerCompact() : mainDrawer();
 }

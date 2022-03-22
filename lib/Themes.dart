@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class AppColors {
-  static var primary = Colors.cyan;
+  static var primary = Colors.blueGrey;
 }
 
 class Themes {
@@ -14,28 +14,28 @@ class Themes {
     TargetPlatform.android: FadeUpwardsPageTransitionsBuilder(),
   });
 
-  static ThemeData materialTheme() => ThemeData(
-        brightness: Brightness.light,
-        primaryColor: AppColors.primary,
+  static ThemeData materialTheme() => ThemeData.from(
+        colorScheme: ColorScheme.light(
+            primary: AppColors.primary, secondary: AppColors.primary),
+        textTheme: GoogleFonts.montserratTextTheme(ThemeData.light().textTheme),
+      ).copyWith(
         cardTheme: CardTheme(
             color: Colors.grey.shade50,
             shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(24))),
-        scaffoldBackgroundColor: Colors.white,
         pageTransitionsTheme: appPageTransitions,
-        fontFamily: GoogleFonts.montserrat().fontFamily, colorScheme: ColorScheme.fromSwatch().copyWith(secondary: AppColors.primary),
       );
 
-  static ThemeData materialDarkTheme() => ThemeData(
-        brightness: Brightness.dark,
-        primaryColor: AppColors.primary,
+  static ThemeData materialDarkTheme() => ThemeData.from(
+        colorScheme: ColorScheme.dark(
+            primary: AppColors.primary, secondary: AppColors.primary),
+        textTheme: GoogleFonts.montserratTextTheme(ThemeData.dark().textTheme),
+      ).copyWith(
         cardTheme: CardTheme(
           color: Colors.grey.shade900,
           shape:
               RoundedRectangleBorder(borderRadius: BorderRadius.circular(24)),
         ),
-        scaffoldBackgroundColor: Colors.grey.shade800,
         pageTransitionsTheme: appPageTransitions,
-        fontFamily: GoogleFonts.montserrat().fontFamily, colorScheme: ColorScheme.fromSwatch().copyWith(secondary: AppColors.primary),
       );
 }

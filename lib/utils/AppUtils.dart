@@ -4,7 +4,7 @@ import 'package:intl/intl.dart';
 
 class AppUtils {
   static bool isSystemLight({required BuildContext context}) =>
-      Theme.of(context).brightness == Brightness.light;
+      Theme.of(context).colorScheme.brightness == Brightness.light;
 
   static bool isCompact({required BuildContext context}) =>
       MediaQuery.of(context).size.width < Constants.desktopMenuSize * 2.5;

@@ -13,7 +13,7 @@ extension ContextExt on BuildContext {
 
   Color get cardBackground => Theme.of(this).cardColor;
 
-  Color get primaryColor => Theme.of(this).primaryColor;
+  Color get primaryColor => Theme.of(this).colorScheme.primary;
 
   Color get additionalColor => Theme.of(this).colorScheme.secondary;
 

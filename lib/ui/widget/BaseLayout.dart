@@ -1,7 +1,6 @@
 import 'package:ezorrio_dev/Constants.dart';
 import 'package:ezorrio_dev/Places.dart';
 import 'package:ezorrio_dev/bloc/navigation/NavigationBloc.dart';
-import 'package:ezorrio_dev/main.dart';
 import 'package:ezorrio_dev/model/AppPlace.dart';
 import 'package:ezorrio_dev/ui/widget/Cookies.dart';
 import 'package:ezorrio_dev/utils/AppUtils.dart';
@@ -58,26 +57,22 @@ class BaseLayoutState extends State<BaseLayout> {
       );
 
   @override
-  Widget build(BuildContext context) =>
-      BlocBuilder<NavigationBloc, NavigationState>(
-        builder: (_, state) => WillPopScope(
-          onWillPop: () async {
-            if (Navigator.of(App.navigatorKey.currentContext!).canPop()) {
-              await Navigator.of(App.navigatorKey.currentContext!).maybePop();
-              return false;
-            }
-            if (Navigator.of(context).canPop()) {
-              await Navigator.of(context).maybePop();
-              return false;
-            }
-            return true;
-          },
-          child: Stack(children: [
-            const Cookies(),
-            AppUtils.isCompact(context: context)
-                ? mobileLayout(page: state.currentPage)
-                : desktopLayout(page: state.currentPage),
-          ]),
-        ),
+  Widget build(BuildContext context) => Stack(
+        children: [
+          Positioned.fill(
+            child: Cookies(
+              isDark: AppUtils.isSystemLight(context: context),
+            ),
+          ),
+          BlocBuilder<NavigationBloc, NavigationState>(
+            builder: (context, state) => Column(
+              children: [
+                AppUtils.isCompact(context: context)
+                    ? mobileLayout(page: state.currentPage)
+                    : desktopLayout(page: state.currentPage),
+              ],
+            ),
+          )
+        ],
       );
 }
