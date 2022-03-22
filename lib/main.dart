@@ -7,6 +7,7 @@ import 'package:ezorrio_dev/resource/SettingsRepository.dart';
 import 'package:ezorrio_dev/ui/page/IntroPage.dart';
 import 'package:ezorrio_dev/ui/widget/BaseLayout.dart';
 import 'package:ezorrio_dev/utils/AppUtils.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -99,6 +100,7 @@ class AppState extends State<App> with WidgetsBindingObserver, RouteAware {
             localizationsDelegates: const <LocalizationsDelegate<dynamic>>[
               DefaultMaterialLocalizations.delegate,
               DefaultWidgetsLocalizations.delegate,
+              DefaultCupertinoLocalizations.delegate,
             ],
             home: Scaffold(
               body: BaseLayout(
