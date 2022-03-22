@@ -31,7 +31,8 @@ class IntroPageState extends State<IntroPage> {
         context: context,
         title: 'Location 📍',
         content: Text(
-          '2019 - now: Vienna, Austria\n'
+          '2021 - now: Oslo, Norway\n'
+          '2019 - 2021: Vienna, Austria\n'
           '2010 - 2019: Moscow, Russia\n'
           '2006 - 2010: Nizhniy Novgorod, Russia',
           style: context.textStyleBody1,

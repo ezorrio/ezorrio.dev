@@ -17,7 +17,7 @@ class SocialNetworks extends StatelessWidget {
   final IconData telegramIcon = FontAwesomeIcons.telegram;
   final IconData linkedinIcon = FontAwesomeIcons.linkedin;
   final IconData githubIcon = FontAwesomeIcons.github;
-  final IconData emailIcon = Icons.email;
+  final IconData emailIcon = FontAwesomeIcons.envelope;
 
   const SocialNetworks(
       {required this.twitter,
@@ -32,6 +32,8 @@ class SocialNetworks extends StatelessWidget {
 
   Widget socialNetworkButton({required IconData icon, required String link}) =>
       IconButton(
+        padding: EdgeInsets.zero,
+        iconSize: 16,
         icon: FaIcon(
           icon,
           size: 16,
@@ -43,14 +45,15 @@ class SocialNetworks extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) => Row(
-        mainAxisAlignment: MainAxisAlignment.spaceAround,
+        mainAxisSize: MainAxisSize.min,
+        // mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: [
           socialNetworkButton(icon: emailIcon, link: email),
-          // socialNetworkButton(icon: facebookIcon, link: facebook),
+          socialNetworkButton(icon: telegramIcon, link: telegram),
           socialNetworkButton(icon: githubIcon, link: github),
+          // socialNetworkButton(icon: facebookIcon, link: facebook),
           socialNetworkButton(icon: instagramIcon, link: instagram),
           socialNetworkButton(icon: linkedinIcon, link: linkedin),
-          socialNetworkButton(icon: telegramIcon, link: telegram),
         ],
       );
 }

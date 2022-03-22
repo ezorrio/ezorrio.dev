@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class AppColors {
-  static var primary = Colors.blueGrey;
+  static var primary = Colors.blueGrey.shade300;
 }
 
 class Themes {

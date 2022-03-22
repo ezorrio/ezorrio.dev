@@ -5,10 +5,10 @@ import 'package:ezorrio_dev/model/Work.dart';
 class DataRepository {
   String name = 'Emin Guliev';
   String photo =
-      'https://avatars.githubusercontent.com/u/4018146?s=400&u=33d89b21c8687275af0be897a1baaa6e87babe39&v=4';
+      'https://avatars.githubusercontent.com/u/4018146?s=100&u=33d89b21c8687275af0be897a1baaa6e87babe39&v=4';
   DateTime birth = DateTime(1998, 1, 3);
   String nickname = 'ezorrio';
-  String location = 'Vienna, Austria';
+  String location = 'Oslo, Norway';
   String bio = 'Code 💻... Sleep 😴... Repeat 🔁';
   String studyPlace = 'University of Vienna';
   String studyField = 'MSc Data Science';

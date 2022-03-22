@@ -5,6 +5,7 @@ import 'package:ezorrio_dev/bloc/appearance/AppearanceState.dart';
 import 'package:ezorrio_dev/utils/AppUtils.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class AppWidgets {
@@ -19,6 +20,7 @@ class AppWidgets {
     required BuildContext context,
     required String title,
     required Widget content,
+    String? link,
   }) =>
       Card(
         clipBehavior: Clip.antiAlias,
@@ -28,10 +30,26 @@ class AppWidgets {
             crossAxisAlignment: CrossAxisAlignment.start,
             mainAxisSize: MainAxisSize.min,
             children: [
-              Text(title,
-                  style: context.textStyleTitle.copyWith(
-                      color: context.primaryColor,
-                      fontWeight: FontWeight.bold)),
+              Row(
+                children: [
+                  Expanded(
+                    child: Text(title,
+                        style: context.textStyleTitle.copyWith(
+                            color: context.primaryColor,
+                            fontWeight: FontWeight.bold)),
+                  ),
+                  if (link != null)
+                    InkWell(
+                      onTap: () async => await canLaunch(link)
+                          ? await launch(link)
+                          : throw 'Could not launch $link',
+                      child: const FaIcon(
+                        FontAwesomeIcons.link,
+                        size: 16,
+                      ),
+                    ),
+                ],
+              ),
               const SizedBox(height: 16),
               content,
             ],

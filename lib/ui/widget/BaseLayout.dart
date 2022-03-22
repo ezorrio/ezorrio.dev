@@ -65,14 +65,10 @@ class BaseLayoutState extends State<BaseLayout> {
             ),
           ),
           BlocBuilder<NavigationBloc, NavigationState>(
-            builder: (context, state) => Column(
-              children: [
-                AppUtils.isCompact(context: context)
-                    ? mobileLayout(page: state.currentPage)
-                    : desktopLayout(page: state.currentPage),
-              ],
-            ),
-          )
+            builder: (context, state) => AppUtils.isCompact(context: context)
+                ? mobileLayout(page: state.currentPage)
+                : desktopLayout(page: state.currentPage),
+          ),
         ],
       );
 }

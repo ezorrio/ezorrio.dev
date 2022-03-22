@@ -44,6 +44,7 @@ class WorkPage extends StatelessWidget {
         child: AppWidgets.infoCard(
           context: context,
           title: work.company,
+          link: work.link,
           content: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             mainAxisSize: MainAxisSize.min,

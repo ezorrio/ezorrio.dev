@@ -19,6 +19,7 @@ class ProjectsPage extends StatelessWidget {
         child: AppWidgets.infoCard(
           context: context,
           title: project.title,
+          link: project.link,
           content: Column(
             mainAxisSize: MainAxisSize.min,
             crossAxisAlignment: CrossAxisAlignment.start,

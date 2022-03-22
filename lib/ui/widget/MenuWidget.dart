@@ -74,6 +74,8 @@ class MenuWidgetState extends State<MenuWidget> {
       AppWidgets.conditionalPadding(
         context: context,
         child: Card(
+          clipBehavior: Clip.antiAlias,
+          borderOnForeground: false,
           child: Column(
             mainAxisSize: MainAxisSize.min,
             children: [
@@ -117,6 +119,7 @@ class MenuWidgetState extends State<MenuWidget> {
           ),
           const SizedBox(height: 8),
           Card(
+            clipBehavior: Clip.antiAlias,
             child: ListView.builder(
               shrinkWrap: true,
               scrollDirection:
