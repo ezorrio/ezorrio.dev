@@ -306,7 +306,7 @@ class SocialNetworkLinks {
 
   String facebook = 'https://fb.com/$nickname';
   String instagram = 'https://instagram.com/$nickname';
-  String email = 'mailto:$nickname@gmail.com';
+  String email = 'mailto:me@ezorr.io';
   String linkedin = 'https://linkedin.com/$nickname';
   String telegram = 'https://t.me/$nickname';
   String github = 'https://github.com/$nickname';
