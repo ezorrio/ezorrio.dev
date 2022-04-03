@@ -24,7 +24,7 @@ jobs:
           git status
           git remote add origin https://${{secrets.commit_secret}}@github.com/ezorrio/ezorrio.github.io.git
           git checkout -b master
-          echo www.ezorr.io > CNAME
+          echo ezorr.io > CNAME
           git add --all
           git commit -m "Update Build"
           git push origin master -f
