@@ -43,7 +43,8 @@ class IntroPageState extends State<IntroPage> {
         context: context,
         title: 'Education 🎓',
         content: Text(
-          'Currently I study at University of Vienna, MSc Computer Science, Data Science field',
+          'Currently I study at University of Vienna, MSc Computer Science, Data Science\n'
+          'BSc Applied Mathematics and Informatics, Moscow Power Engineering Institute',
           style: context.textStyleBody1,
         ),
       );

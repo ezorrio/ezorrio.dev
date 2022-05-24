@@ -12,27 +12,7 @@ part of 'AppearanceState.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
-
-/// @nodoc
-class _$AppearanceStateTearOff {
-  const _$AppearanceStateTearOff();
-
-  Light light() {
-    return const Light();
-  }
-
-  Dark dark() {
-    return const Dark();
-  }
-
-  System system() {
-    return const System();
-  }
-}
-
-/// @nodoc
-const $AppearanceState = _$AppearanceStateTearOff();
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 /// @nodoc
 mixin _$AppearanceState {
@@ -100,19 +80,19 @@ class _$AppearanceStateCopyWithImpl<$Res>
 }
 
 /// @nodoc
-abstract class $LightCopyWith<$Res> {
-  factory $LightCopyWith(Light value, $Res Function(Light) then) =
-      _$LightCopyWithImpl<$Res>;
+abstract class _$$LightCopyWith<$Res> {
+  factory _$$LightCopyWith(_$Light value, $Res Function(_$Light) then) =
+      __$$LightCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class _$LightCopyWithImpl<$Res> extends _$AppearanceStateCopyWithImpl<$Res>
-    implements $LightCopyWith<$Res> {
-  _$LightCopyWithImpl(Light _value, $Res Function(Light) _then)
-      : super(_value, (v) => _then(v as Light));
+class __$$LightCopyWithImpl<$Res> extends _$AppearanceStateCopyWithImpl<$Res>
+    implements _$$LightCopyWith<$Res> {
+  __$$LightCopyWithImpl(_$Light _value, $Res Function(_$Light) _then)
+      : super(_value, (v) => _then(v as _$Light));
 
   @override
-  Light get _value => super._value as Light;
+  _$Light get _value => super._value as _$Light;
 }
 
 /// @nodoc
@@ -128,7 +108,7 @@ class _$Light implements Light {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is Light);
+        (other.runtimeType == runtimeType && other is _$Light);
   }
 
   @override
@@ -208,19 +188,19 @@ abstract class Light implements AppearanceState {
 }
 
 /// @nodoc
-abstract class $DarkCopyWith<$Res> {
-  factory $DarkCopyWith(Dark value, $Res Function(Dark) then) =
-      _$DarkCopyWithImpl<$Res>;
+abstract class _$$DarkCopyWith<$Res> {
+  factory _$$DarkCopyWith(_$Dark value, $Res Function(_$Dark) then) =
+      __$$DarkCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class _$DarkCopyWithImpl<$Res> extends _$AppearanceStateCopyWithImpl<$Res>
-    implements $DarkCopyWith<$Res> {
-  _$DarkCopyWithImpl(Dark _value, $Res Function(Dark) _then)
-      : super(_value, (v) => _then(v as Dark));
+class __$$DarkCopyWithImpl<$Res> extends _$AppearanceStateCopyWithImpl<$Res>
+    implements _$$DarkCopyWith<$Res> {
+  __$$DarkCopyWithImpl(_$Dark _value, $Res Function(_$Dark) _then)
+      : super(_value, (v) => _then(v as _$Dark));
 
   @override
-  Dark get _value => super._value as Dark;
+  _$Dark get _value => super._value as _$Dark;
 }
 
 /// @nodoc
@@ -236,7 +216,7 @@ class _$Dark implements Dark {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is Dark);
+        (other.runtimeType == runtimeType && other is _$Dark);
   }
 
   @override
@@ -316,19 +296,19 @@ abstract class Dark implements AppearanceState {
 }
 
 /// @nodoc
-abstract class $SystemCopyWith<$Res> {
-  factory $SystemCopyWith(System value, $Res Function(System) then) =
-      _$SystemCopyWithImpl<$Res>;
+abstract class _$$SystemCopyWith<$Res> {
+  factory _$$SystemCopyWith(_$System value, $Res Function(_$System) then) =
+      __$$SystemCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class _$SystemCopyWithImpl<$Res> extends _$AppearanceStateCopyWithImpl<$Res>
-    implements $SystemCopyWith<$Res> {
-  _$SystemCopyWithImpl(System _value, $Res Function(System) _then)
-      : super(_value, (v) => _then(v as System));
+class __$$SystemCopyWithImpl<$Res> extends _$AppearanceStateCopyWithImpl<$Res>
+    implements _$$SystemCopyWith<$Res> {
+  __$$SystemCopyWithImpl(_$System _value, $Res Function(_$System) _then)
+      : super(_value, (v) => _then(v as _$System));
 
   @override
-  System get _value => super._value as System;
+  _$System get _value => super._value as _$System;
 }
 
 /// @nodoc
@@ -344,7 +324,7 @@ class _$System implements System {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is System);
+        (other.runtimeType == runtimeType && other is _$System);
   }
 
   @override

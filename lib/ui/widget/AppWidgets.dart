@@ -6,13 +6,13 @@ import 'package:ezorrio_dev/utils/AppUtils.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:url_launcher/url_launcher.dart';
+import 'package:url_launcher/url_launcher_string.dart';
 
 class AppWidgets {
   static Widget poweredByFlutter({required BuildContext context}) => IconButton(
         icon: const FlutterLogo(),
-        onPressed: () async => await canLaunch(Constants.flutterUrl)
-            ? await launch(Constants.flutterUrl)
+        onPressed: () async => await canLaunchUrlString(Constants.flutterUrl)
+            ? await launchUrlString(Constants.flutterUrl)
             : throw 'Could not launch ${Constants.flutterUrl}',
       );
 
@@ -40,8 +40,8 @@ class AppWidgets {
                   ),
                   if (link != null)
                     InkWell(
-                      onTap: () async => await canLaunch(link)
-                          ? await launch(link)
+                      onTap: () async => await canLaunchUrlString(link)
+                          ? await launchUrlString(link)
                           : throw 'Could not launch $link',
                       child: const FaIcon(
                         FontAwesomeIcons.link,

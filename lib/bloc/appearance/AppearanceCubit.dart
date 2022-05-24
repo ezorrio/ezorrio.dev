@@ -1,5 +1,5 @@
-import 'package:bloc/bloc.dart';
 import 'package:ezorrio_dev/resource/SettingsRepository.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 import 'AppearanceState.dart';
 
