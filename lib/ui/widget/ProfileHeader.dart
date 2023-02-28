@@ -2,10 +2,10 @@ import 'package:ezorrio_dev/Extensions.dart';
 import 'package:ezorrio_dev/resource/DataRepository.dart';
 import 'package:ezorrio_dev/ui/widget/AppWidgets.dart';
 import 'package:ezorrio_dev/ui/widget/SocialNetworks.dart';
+import 'package:ezorrio_dev/utils/AppUtils.dart';
 import 'package:flutter/material.dart';
 
 class ProfileHeader extends StatelessWidget {
-  final bool isCompact;
   final String photoUrl;
   final String name;
   final String bio;
@@ -13,8 +13,7 @@ class ProfileHeader extends StatelessWidget {
   final SocialNetworkLinks networkLinks;
 
   const ProfileHeader(
-      {required this.isCompact,
-      required this.name,
+      {required this.name,
       required this.bio,
       required this.photoUrl,
       required this.nickname,
@@ -29,7 +28,7 @@ class ProfileHeader extends StatelessWidget {
         ),
       );
 
-  Widget profile(BuildContext context) => isCompact
+  Widget profile(BuildContext context) => AppUtils.isCompact(context: context)
       ? Row(
           crossAxisAlignment: CrossAxisAlignment.center,
           mainAxisAlignment: MainAxisAlignment.center,
@@ -102,23 +101,17 @@ class ProfileHeader extends StatelessWidget {
           _onCorner(IconButton(
             icon: const Icon(Icons.bedtime_outlined, size: 16),
             onPressed: () => showModalBottomSheet<void>(
-                context: context,
-                builder: (builder) =>
-                    AppWidgets.themeChooser(context: context)),
+                context: context, builder: (builder) => AppWidgets.themeChooser(context: context)),
           )),
           Center(
-            child: Padding(
-                padding: EdgeInsets.symmetric(vertical: isCompact ? 8 : 12),
-                child: profile(context)),
+            child: Padding(padding: const EdgeInsets.symmetric(vertical: 8.0), child: profile(context)),
           ),
         ],
       );
 
   @override
-  Widget build(BuildContext context) => isCompact
-      ? waves(context)
-      : Card(
-          clipBehavior: Clip.antiAlias,
-          child: waves(context),
-        );
+  Widget build(BuildContext context) => Card(
+        clipBehavior: Clip.antiAlias,
+        child: waves(context),
+      );
 }

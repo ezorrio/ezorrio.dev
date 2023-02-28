@@ -23,7 +23,10 @@ class WorkPage extends StatelessWidget {
             style: context.textStyleBody1.copyWith(fontWeight: FontWeight.bold),
           ),
           const SizedBox(height: 12),
-          Text(project.description),
+          Text(
+            project.description,
+            style: context.textStyleBody1,
+          ),
           const SizedBox(height: 12),
           Wrap(
             children: [
@@ -38,8 +41,7 @@ class WorkPage extends StatelessWidget {
         ],
       );
 
-  Widget workItem(BuildContext context, Work work) =>
-      AppWidgets.conditionalPadding(
+  Widget workItem(BuildContext context, Work work) => AppWidgets.conditionalPadding(
         context: context,
         child: AppWidgets.infoCard(
           context: context,
@@ -67,8 +69,8 @@ class WorkPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) => ListView.builder(
-        itemBuilder: (_, index) => workItem(context,
-            RepositoryProvider.of<DataRepository>(context).works[index]),
+        shrinkWrap: true,
+        itemBuilder: (_, index) => workItem(context, RepositoryProvider.of<DataRepository>(context).works[index]),
         itemCount: RepositoryProvider.of<DataRepository>(context).works.length,
       );
 }

@@ -34,18 +34,16 @@ class AppWidgets {
                 children: [
                   Expanded(
                     child: Text(title,
-                        style: context.textStyleBody1.copyWith(
-                            color: context.primaryColor,
-                            fontWeight: FontWeight.bold)),
+                        style:
+                            context.textStyleBody1.copyWith(color: context.primaryColor, fontWeight: FontWeight.bold)),
                   ),
                   if (link != null)
                     InkWell(
-                      onTap: () async => await canLaunchUrlString(link)
-                          ? await launchUrlString(link)
-                          : throw 'Could not launch $link',
-                      child: const FaIcon(
-                        FontAwesomeIcons.link,
-                        size: 16,
+                      onTap: () async =>
+                          await canLaunchUrlString(link) ? await launchUrlString(link) : throw 'Could not launch $link',
+                      child: const Icon(
+                        Icons.link,
+                        size: 24,
                       ),
                     ),
                 ],
@@ -68,24 +66,16 @@ class AppWidgets {
               IconButton(
                   icon: const Icon(Icons.wb_sunny_outlined),
                   disabledColor: context.primaryColor,
-                  onPressed: state is! Light
-                      ? () => BlocProvider.of<AppearanceCubit>(context)
-                          .lightManualChose()
-                      : null),
+                  onPressed:
+                      state is! Light ? () => BlocProvider.of<AppearanceCubit>(context).lightManualChose() : null),
               IconButton(
                   icon: const Icon(Icons.nightlight_round),
                   disabledColor: context.primaryColor,
-                  onPressed: state is! Dark
-                      ? () => BlocProvider.of<AppearanceCubit>(context)
-                          .darkManualChose()
-                      : null),
+                  onPressed: state is! Dark ? () => BlocProvider.of<AppearanceCubit>(context).darkManualChose() : null),
               IconButton(
                   icon: const Icon(Icons.brightness_auto_outlined),
                   disabledColor: context.primaryColor,
-                  onPressed: state is! System
-                      ? () => BlocProvider.of<AppearanceCubit>(context)
-                          .systemChose()
-                      : null),
+                  onPressed: state is! System ? () => BlocProvider.of<AppearanceCubit>(context).systemChose() : null),
             ],
           ),
         ),
@@ -96,9 +86,7 @@ class AppWidgets {
     required Widget child,
   }) =>
       Padding(
-        padding: AppUtils.isCompact(context: context)
-            ? const EdgeInsets.all(8.0)
-            : EdgeInsets.zero,
+        padding: AppUtils.isCompact(context: context) ? EdgeInsets.symmetric(horizontal: 16.0) : EdgeInsets.zero,
         child: child,
       );
 }

@@ -8,7 +8,7 @@ import 'model/AppPlace.dart';
 
 class Places {
   static var intro = AppPlace(
-      title: 'Introduction',
+      title: 'About me',
       icon: Icons.info_outline,
       routeName: IntroPage.routeName);
   static var education = AppPlace(

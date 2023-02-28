@@ -13,8 +13,7 @@ class ProjectsPage extends StatelessWidget {
 
   static ProjectsPage instance() => const ProjectsPage();
 
-  Widget projectItem(BuildContext context, Project project) =>
-      AppWidgets.conditionalPadding(
+  Widget projectItem(BuildContext context, Project project) => AppWidgets.conditionalPadding(
         context: context,
         child: AppWidgets.infoCard(
           context: context,
@@ -29,14 +28,16 @@ class ProjectsPage extends StatelessWidget {
                 style: context.textStyleCaption,
               ),
               const SizedBox(height: 12),
-              Text(project.description),
+              Text(
+                project.description,
+                style: context.textStyleBody1,
+              ),
               const SizedBox(height: 12),
               Wrap(children: [
                 ...project.tags.map(
                   (e) => Padding(
                     padding: const EdgeInsets.all(2.0),
-                    child:
-                        Chip(label: Text(e, style: context.textStyleCaption)),
+                    child: Chip(label: Text(e, style: context.textStyleCaption)),
                   ),
                 )
               ]),
@@ -47,9 +48,8 @@ class ProjectsPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) => ListView.builder(
-        itemBuilder: (_, index) => projectItem(context,
-            RepositoryProvider.of<DataRepository>(context).projects[index]),
-        itemCount:
-            RepositoryProvider.of<DataRepository>(context).projects.length,
+        shrinkWrap: true,
+        itemBuilder: (_, index) => projectItem(context, RepositoryProvider.of<DataRepository>(context).projects[index]),
+        itemCount: RepositoryProvider.of<DataRepository>(context).projects.length,
       );
 }

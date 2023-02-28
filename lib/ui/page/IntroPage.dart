@@ -1,8 +1,11 @@
 import 'package:ezorrio_dev/Extensions.dart';
+import 'package:ezorrio_dev/resource/DataRepository.dart';
 import 'package:ezorrio_dev/ui/widget/AppWidgets.dart';
+import 'package:ezorrio_dev/ui/widget/ProfileHeader.dart';
 import 'package:ezorrio_dev/utils/AppUtils.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 
 class IntroPage extends StatefulWidget {
@@ -21,8 +24,8 @@ class IntroPageState extends State<IntroPage> {
         context: context,
         title: 'About me 🐰',
         content: Text(
-          'From Azerbaijan, born in Russia. \n\n'
-          'Most of time I\'m coding, hiking, photographing and listening to music.',
+          'Senior Application Developer with leading experience\n\n'
+          'From Azerbaijan 🇦🇿, born in Russia 🇷🇺',
           style: context.textStyleBody1,
         ),
       );
@@ -31,10 +34,9 @@ class IntroPageState extends State<IntroPage> {
         context: context,
         title: 'Location 📍',
         content: Text(
-          '2021 - now: Oslo, Norway\n'
-          '2019 - 2021: Vienna, Austria\n'
-          '2010 - 2019: Moscow, Russia\n'
-          '2006 - 2010: Nizhniy Novgorod, Russia',
+          '2021 - now: Oslo, Norway 🇳🇴 \n'
+          '2019 - 2021: Vienna, Austria 🇦🇹\n'
+          '2010 - 2019: Moscow, Russia 🇷🇺',
           style: context.textStyleBody1,
         ),
       );
@@ -43,8 +45,8 @@ class IntroPageState extends State<IntroPage> {
         context: context,
         title: 'Education 🎓',
         content: Text(
-          'Studying at University of Vienna, MSc Computer Science, Data Science\n'
-          'BSc Applied Mathematics and Informatics, Moscow Power Engineering Institute',
+          'MSc Computer Science, Data Science [ongoing] \n@University of Vienna\n\n'
+          'BSc Applied Mathematics and Informatics \n@Moscow Power Engineering Institute',
           style: context.textStyleBody1,
         ),
       );
@@ -53,7 +55,6 @@ class IntroPageState extends State<IntroPage> {
         context: context,
         title: 'Work 🧰',
         content: Text(
-          'Despite studying Data Science, I\'m more experienced as Application Developer. \n\n'
           'Experienced in Flutter (>4 years). \n\n'
           'Have >5 years of experience with Android Native. \n\n'
           'Currently I work as a Senior Mobile Application Developer at Coop Norge',
@@ -63,24 +64,29 @@ class IntroPageState extends State<IntroPage> {
 
   @override
   Widget build(BuildContext context) => SingleChildScrollView(
+        padding: AppUtils.isCompact(context: context) ? const EdgeInsets.symmetric(horizontal: 16.0) : EdgeInsets.zero,
         child: StaggeredGrid.count(
           crossAxisCount: AppUtils.isCompact(context: context) ? 1 : 2,
           children: [
             StaggeredGridTile.fit(
               crossAxisCellCount: 1,
-              child: AppWidgets.conditionalPadding(context: context, child: welcomeCard()),
+              child: ProfileHeader(
+                name: RepositoryProvider.of<DataRepository>(context).name,
+                bio: RepositoryProvider.of<DataRepository>(context).bio,
+                photoUrl: RepositoryProvider.of<DataRepository>(context).photo,
+                nickname: RepositoryProvider.of<DataRepository>(context).nickname,
+                networkLinks: RepositoryProvider.of<DataRepository>(context).networkLinks,
+              ),
             ),
+            StaggeredGridTile.fit(crossAxisCellCount: 1, child: welcomeCard()),
             StaggeredGridTile.fit(
               crossAxisCellCount: 1,
-              child: AppWidgets.conditionalPadding(context: context, child: locationCard()),
+              child: locationCard(),
             ),
+            StaggeredGridTile.fit(crossAxisCellCount: 1, child: workCard()),
             StaggeredGridTile.fit(
               crossAxisCellCount: 1,
-              child: AppWidgets.conditionalPadding(context: context, child: workCard()),
-            ),
-            StaggeredGridTile.fit(
-              crossAxisCellCount: 1,
-              child: AppWidgets.conditionalPadding(context: context, child: educationCard()),
+              child: educationCard(),
             ),
           ],
         ),

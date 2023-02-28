@@ -13,8 +13,7 @@ class EducationPage extends StatelessWidget {
 
   static EducationPage instance() => const EducationPage();
 
-  Widget projectItem(BuildContext context, Education education) =>
-      AppWidgets.conditionalPadding(
+  Widget projectItem(BuildContext context, Education education) => AppWidgets.conditionalPadding(
         context: context,
         child: AppWidgets.infoCard(
           context: context,
@@ -37,9 +36,9 @@ class EducationPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) => ListView.builder(
-        itemBuilder: (_, index) => projectItem(context,
-            RepositoryProvider.of<DataRepository>(context).education[index]),
-        itemCount:
-            RepositoryProvider.of<DataRepository>(context).education.length,
+        shrinkWrap: true,
+        itemBuilder: (_, index) =>
+            projectItem(context, RepositoryProvider.of<DataRepository>(context).education[index]),
+        itemCount: RepositoryProvider.of<DataRepository>(context).education.length,
       );
 }
