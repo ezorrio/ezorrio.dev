@@ -21,7 +21,7 @@ class IntroPageState extends State<IntroPage> {
         context: context,
         title: 'About me 🐰',
         content: Text(
-          'Briefly speaking, I\'m originally from Azerbaijan, but was born in Russia. \n\n'
+          'From Azerbaijan, born in Russia. \n\n'
           'Most of time I\'m coding, hiking, photographing and listening to music.',
           style: context.textStyleBody1,
         ),
@@ -43,7 +43,7 @@ class IntroPageState extends State<IntroPage> {
         context: context,
         title: 'Education 🎓',
         content: Text(
-          'Currently I study at University of Vienna, MSc Computer Science, Data Science\n'
+          'Studying at University of Vienna, MSc Computer Science, Data Science\n'
           'BSc Applied Mathematics and Informatics, Moscow Power Engineering Institute',
           style: context.textStyleBody1,
         ),
@@ -54,8 +54,9 @@ class IntroPageState extends State<IntroPage> {
         title: 'Work 🧰',
         content: Text(
           'Despite studying Data Science, I\'m more experienced as Application Developer. \n\n'
-          'Have more than 5 years of experience with Android. \n\n'
-          'Currently I work as a Lead Flutter Developer at wheel.me, on an cross-platform app for robots control',
+          'Experienced in Flutter (>4 years). \n\n'
+          'Have >5 years of experience with Android Native. \n\n'
+          'Currently I work as a Senior Mobile Application Developer at Coop Norge',
           style: context.textStyleBody1,
         ),
       );
@@ -67,23 +68,19 @@ class IntroPageState extends State<IntroPage> {
           children: [
             StaggeredGridTile.fit(
               crossAxisCellCount: 1,
-              child: AppWidgets.conditionalPadding(
-                  context: context, child: welcomeCard()),
+              child: AppWidgets.conditionalPadding(context: context, child: welcomeCard()),
             ),
             StaggeredGridTile.fit(
               crossAxisCellCount: 1,
-              child: AppWidgets.conditionalPadding(
-                  context: context, child: locationCard()),
+              child: AppWidgets.conditionalPadding(context: context, child: locationCard()),
             ),
             StaggeredGridTile.fit(
               crossAxisCellCount: 1,
-              child: AppWidgets.conditionalPadding(
-                  context: context, child: workCard()),
+              child: AppWidgets.conditionalPadding(context: context, child: workCard()),
             ),
             StaggeredGridTile.fit(
               crossAxisCellCount: 1,
-              child: AppWidgets.conditionalPadding(
-                  context: context, child: educationCard()),
+              child: AppWidgets.conditionalPadding(context: context, child: educationCard()),
             ),
           ],
         ),
