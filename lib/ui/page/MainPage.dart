@@ -41,7 +41,7 @@ class MainPageState extends State<MainPage> with TickerProviderStateMixin {
         child: Column(
           mainAxisSize: MainAxisSize.max,
           children: [
-            AppBar(title: Text(pages.keys.elementAt(tabController.index).title)),
+            // AppBar(title: Text(pages.keys.elementAt(tabController.index).title)),
             Expanded(child: pages.values.elementAt(tabController.index)),
             BottomNavigationBar(
               enableFeedback: false,
@@ -58,6 +58,7 @@ class MainPageState extends State<MainPage> with TickerProviderStateMixin {
               items: pages.keys
                   .map((e) => BottomNavigationBarItem(
                       icon: Card(
+                        margin: EdgeInsets.zero,
                         child: Padding(
                           padding: const EdgeInsets.all(8.0),
                           child: Row(
