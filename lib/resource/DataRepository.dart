@@ -4,16 +4,15 @@ import 'package:ezorrio_dev/model/Work.dart';
 
 class DataRepository {
   String name = 'Emin Guliev';
-  String photo =
-      'https://avatars.githubusercontent.com/u/4018146?s=100&u=33d89b21c8687275af0be897a1baaa6e87babe39&v=4';
+  String photo = 'https://avatars.githubusercontent.com/u/4018146?s=400&u=474410b93a2c77f660919a1dc9a5655a319e3661&v=4';
   DateTime birth = DateTime(1998, 1, 3);
   String nickname = 'ezorrio';
   String location = 'Oslo, Norway';
   String bio = 'Code 💻... Sleep 😴... Repeat 🔁';
   String studyPlace = 'University of Vienna';
   String studyField = 'MSc Data Science';
-  String jobPlace = 'wheel.me';
-  String jobTitle = 'Lead Flutter Developer';
+  String jobPlace = 'Coop Norge';
+  String jobTitle = 'Senior Mobile Application Developer';
   SocialNetworkLinks networkLinks = SocialNetworkLinks();
 
   static List<String> univiennaCourses = [
@@ -41,8 +40,7 @@ class DataRepository {
     Education(
       place: 'Moscow Power Engineering Institute',
       occupation: 'Bachelor of Computer Science',
-      description:
-          'Studies were focused more on mathematics rather than on programming',
+      description: 'Studies were focused more on mathematics rather than on programming',
       start: DateTime(2014, 9),
       end: DateTime(2018, 6),
     )
@@ -100,24 +98,12 @@ class DataRepository {
         description:
             'Deep learning project which predicts news topic (predefined set, i.e. politics, sports and etc).\n'
             'Focused on Russian text. As source for learning Lenta.ru articles were used',
-        tags: [
-          'python',
-          'tensorflow',
-          'glove',
-          'fasttext',
-          'word2vec',
-          'cnn',
-          'rcnn',
-          'news',
-          'russian',
-          'nlp'
-        ],
+        tags: ['python', 'tensorflow', 'glove', 'fasttext', 'word2vec', 'cnn', 'rcnn', 'news', 'russian', 'nlp'],
         start: DateTime(2018),
         end: DateTime(2018)),
     Project(
         title: 'Music genre recognition',
-        description:
-            'Machine learning project which predicts music genre based on features\n'
+        description: 'Machine learning project which predicts music genre based on features\n'
             'Uses Local Sensitive Hashing (LSH). Used FMA as dataset for learning.',
         link: 'https://github.com/ezorrio/genre-classification',
         tags: ['python', 'lsh', 'fma', 'music'],
@@ -127,16 +113,30 @@ class DataRepository {
 
   List<Work> works = [
     Work(
+      company: 'Coop Norge',
+      link: 'https://coop.no',
+      position: 'Senior Mobile Application Developer',
+      start: DateTime(2022, 12),
+      end: DateTime.now(),
+      projects: [
+        Project(title: 'Coop Member App', description: '', tags: [
+          'flutter',
+          'dart',
+          'android',
+          'ios',
+        ]),
+      ],
+    ),
+    Work(
       company: 'wheel.me',
       link: 'https://wheel.me',
       position: 'Lead Software Developer',
       start: DateTime(2020, 3),
-      end: DateTime.now(),
+      end: DateTime(2022, 12),
       projects: [
         Project(
             title: 'wheel.me',
-            description:
-                'Developed a Cross-platform Real-time Flutter application for:\n'
+            description: 'Developed a Cross-platform Real-time Flutter application for:\n'
                 '- Controlling wheels and groups of wheels\n'
                 '- Managing missions, zones, map data and other data\n'
                 'Running on Android, iOS, Linux, Windows, macOS and Web\n\n'
@@ -175,40 +175,17 @@ class DataRepository {
                 '- ability to locate all of devices and view them on chosen map provider (Google/OSM/Yandex)\n'
                 '- push notification regarding some changes in device status\n'
                 '- custom secure-protocol implemented',
-            tags: [
-              'android',
-              'rxjava',
-              'mvp',
-              'firebase',
-              'google-maps',
-              'yandex-maps',
-              'openstreetmaps'
-            ]),
+            tags: ['android', 'rxjava', 'mvp', 'firebase', 'google-maps', 'yandex-maps', 'openstreetmaps']),
         Project(
             title: 'Drone Controller',
             description: 'application for DJI drones operation\n'
                 '- implemented most operations available via DJI SDK (drone flight modes, calibration, camera streaming & control, drone status view and much more)\n'
                 '- transmit videostream from drone-controller device to many others including data-servers',
-            tags: [
-              'android',
-              'rxjava',
-              'mvp',
-              'dji-sdk',
-              'google-maps',
-              'yandex-maps',
-              'openstreetmaps'
-            ]),
+            tags: ['android', 'rxjava', 'mvp', 'dji-sdk', 'google-maps', 'yandex-maps', 'openstreetmaps']),
         Project(
             title: 'Lockey App for Desktop',
-            description:
-                'application for device tracking (see above) - written in C#',
-            tags: [
-              'windows',
-              'c#',
-              'google-maps',
-              'yandex-maps',
-              'openstreetmaps'
-            ]),
+            description: 'application for device tracking (see above) - written in C#',
+            tags: ['windows', 'c#', 'google-maps', 'yandex-maps', 'openstreetmaps']),
         Project(
             title: 'VideoCollector for Desktop',
             description:
@@ -233,13 +210,7 @@ class DataRepository {
             title: 'DVB-T restreamer (Embedded)',
             description:
                 ' Raspberry Pi/Tinkerboard project aiming at producing a portable device to stream video-data from up to 4 cameras transmitted over DVB-T (different frequencies) to save them on local drives / remote servers.',
-            tags: [
-              'embedded',
-              'raspberry-pi',
-              'tinkerboard',
-              'dvb-t',
-              'ffmpeg'
-            ])
+            tags: ['embedded', 'raspberry-pi', 'tinkerboard', 'dvb-t', 'ffmpeg'])
       ],
       link: 'https://unmannedsystems.ru',
       position: 'Lead Software Developer',
@@ -251,8 +222,7 @@ class DataRepository {
       projects: [
         Project(
             title: 'Maquette Controller',
-            description:
-                'Application for controlling physical maquette of a location\n'
+            description: 'Application for controlling physical maquette of a location\n'
                 '- worked with UART and Bluetooth\n'
                 '- control each object on maquette (lights, elevator & etc)\n'
                 '- support different maquettes\n'
@@ -265,8 +235,7 @@ class DataRepository {
             ]),
         Project(
             title: 'Videowall Controller',
-            description:
-                'Application for controlling custom video display with unspecified amount of panels (3-9)\n'
+            description: 'Application for controlling custom video display with unspecified amount of panels (3-9)\n'
                 '- multithread image output of images to display\n'
                 '- control data displayed on each panel\n'
                 '- ability to move data between panels\n'
@@ -304,11 +273,11 @@ class DataRepository {
 class SocialNetworkLinks {
   static String nickname = 'ezorrio';
 
-  String facebook = 'https://fb.com/$nickname';
-  String instagram = 'https://instagram.com/$nickname';
+  // String facebook = 'https://fb.com/$nickname';
   String email = 'mailto:me@ezorr.io';
   String linkedin = 'https://linkedin.com/$nickname';
   String telegram = 'https://t.me/$nickname';
   String github = 'https://github.com/$nickname';
+  String instagram = 'https://instagram.com/$nickname';
   String twitter = 'https://twitter.com/$nickname';
 }

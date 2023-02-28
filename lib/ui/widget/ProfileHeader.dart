@@ -60,7 +60,6 @@ class ProfileHeader extends StatelessWidget {
                   SocialNetworks(
                       twitter: networkLinks.twitter,
                       instagram: networkLinks.instagram,
-                      facebook: networkLinks.facebook,
                       telegram: networkLinks.telegram,
                       linkedin: networkLinks.linkedin,
                       github: networkLinks.github,
@@ -91,7 +90,6 @@ class ProfileHeader extends StatelessWidget {
             SocialNetworks(
                 twitter: networkLinks.twitter,
                 instagram: networkLinks.instagram,
-                facebook: networkLinks.facebook,
                 telegram: networkLinks.telegram,
                 linkedin: networkLinks.linkedin,
                 github: networkLinks.github,
