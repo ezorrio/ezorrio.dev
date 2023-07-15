@@ -87,26 +87,20 @@ class MainPageState extends State<MainPage> with TickerProviderStateMixin {
           child: const SingleChildScrollView(
             child: Padding(
               padding: EdgeInsets.all(16.0),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                mainAxisSize: MainAxisSize.min,
+              child: Row(
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Row(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Expanded(
-                        flex: 2,
-                        child: Column(
-                          mainAxisSize: MainAxisSize.min,
-                          children: [
-                            IntroPage(),
-                            ProjectsPage(),
-                          ],
-                        ),
-                      ),
-                      Expanded(flex: 3, child: WorkPage()),
-                    ],
+                  Expanded(
+                    flex: 2,
+                    child: Column(
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        IntroPage(),
+                        ProjectsPage(),
+                      ],
+                    ),
                   ),
+                  Expanded(flex: 3, child: WorkPage()),
                 ],
               ),
             ),
