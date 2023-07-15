@@ -33,14 +33,14 @@ class ProjectsPage extends StatelessWidget {
                 style: context.textStyleBody1,
               ),
               const SizedBox(height: 12),
-              Wrap(children: [
-                ...project.tags.map(
-                  (e) => Padding(
-                    padding: const EdgeInsets.all(2.0),
-                    child: Chip(label: Text(e, style: context.textStyleCaption)),
-                  ),
-                )
-              ]),
+              // Wrap(children: [
+              //   ...project.tags.map(
+              //     (e) => Padding(
+              //       padding: const EdgeInsets.all(2.0),
+              //       child: Chip(label: Text(e, style: context.textStyleCaption)),
+              //     ),
+              //   )
+              // ]),
             ],
           ),
         ),
