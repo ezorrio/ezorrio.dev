@@ -10,7 +10,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 class WorkPage extends StatelessWidget {
   static const routeName = '/work';
 
-  const WorkPage({Key? key}) : super(key: key);
+  const WorkPage({super.key});
 
   static WorkPage instance() => const WorkPage();
 

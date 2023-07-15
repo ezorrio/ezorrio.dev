@@ -9,7 +9,7 @@ import 'package:ezorrio_dev/utils/app_utils.dart';
 import 'package:flutter/material.dart';
 
 class MainPage extends StatefulWidget {
-  const MainPage({Key? key}) : super(key: key);
+  const MainPage({super.key});
 
   @override
   State<StatefulWidget> createState() => MainPageState();

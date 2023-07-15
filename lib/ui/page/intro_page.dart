@@ -11,7 +11,7 @@ import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 class IntroPage extends StatefulWidget {
   static const routeName = '/intro';
 
-  const IntroPage({Key? key}) : super(key: key);
+  const IntroPage({super.key});
 
   static IntroPage instance() => const IntroPage();
 

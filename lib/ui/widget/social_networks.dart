@@ -10,22 +10,27 @@ class SocialNetworks extends StatelessWidget {
   final String github;
   final String email;
 
-  final IconData twitterIcon = FontAwesomeIcons.twitter;
-  final IconData instagramIcon = FontAwesomeIcons.instagram;
-  final IconData telegramIcon = FontAwesomeIcons.telegram;
-  final IconData linkedinIcon = FontAwesomeIcons.linkedin;
-  final IconData githubIcon = FontAwesomeIcons.github;
-  final IconData emailIcon = FontAwesomeIcons.envelope;
+  IconData get twitterIcon => FontAwesomeIcons.twitter;
 
-  const SocialNetworks(
-      {required this.twitter,
-      required this.instagram,
-      required this.telegram,
-      required this.linkedin,
-      required this.github,
-      required this.email,
-      Key? key})
-      : super(key: key);
+  IconData get instagramIcon => FontAwesomeIcons.instagram;
+
+  IconData get telegramIcon => FontAwesomeIcons.telegram;
+
+  IconData get linkedinIcon => FontAwesomeIcons.linkedin;
+
+  IconData get githubIcon => FontAwesomeIcons.github;
+
+  IconData get emailIcon => FontAwesomeIcons.envelope;
+
+  const SocialNetworks({
+    required this.twitter,
+    required this.instagram,
+    required this.telegram,
+    required this.linkedin,
+    required this.github,
+    required this.email,
+    super.key,
+  });
 
   Widget socialNetworkButton({required IconData icon, required String link}) => IconButton(
         padding: EdgeInsets.zero,

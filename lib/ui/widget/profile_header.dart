@@ -12,14 +12,14 @@ class ProfileHeader extends StatelessWidget {
   final String nickname;
   final SocialNetworkLinks networkLinks;
 
-  const ProfileHeader(
-      {required this.name,
-      required this.bio,
-      required this.photoUrl,
-      required this.nickname,
-      required this.networkLinks,
-      Key? key})
-      : super(key: key);
+  const ProfileHeader({
+    required this.name,
+    required this.bio,
+    required this.photoUrl,
+    required this.nickname,
+    required this.networkLinks,
+    super.key,
+  });
 
   Widget _onCorner(Widget child) => Positioned.fill(
         child: Align(

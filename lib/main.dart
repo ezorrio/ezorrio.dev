@@ -65,7 +65,7 @@ void main() {
 class App extends StatefulWidget {
   static final GlobalKey<NavigatorState> navigatorKey = GlobalKey(debugLabel: 'navigator');
 
-  const App({Key? key}) : super(key: key);
+  const App({super.key});
 
   @override
   AppState createState() => AppState();

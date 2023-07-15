@@ -5,8 +5,94 @@ analyzer:
     strict-casts: true
     strict-raw-types: true
 
+  errors:
+    annotate_overrides: warning
+    always_put_control_body_on_new_line: info
+    avoid_returning_null_for_future: warning
+    avoid_shadowing_type_parameters: warning
+    missing_required_param: error
+    no_duplicate_case_values: error
+    overridden_fields: warning
+    parameter_assignments: warning
+    prefer_contains: warning
+
 linter:
   rules:
-    file_names: false
     always_declare_return_types: true
-    prefer_single_quotes: true
+    always_put_control_body_on_new_line: true
+    always_require_non_null_named_parameters: true
+    always_use_package_imports: true
+    annotate_overrides: false
+    avoid_bool_literals_in_conditional_expressions: true
+    avoid_classes_with_only_static_members: false
+    avoid_empty_else: true
+    avoid_field_initializers_in_const_classes: true
+    avoid_final_parameters: true
+    avoid_init_to_null: true
+    avoid_null_checks_in_equality_operators: true
+    avoid_positional_boolean_parameters: true
+    avoid_relative_lib_imports: true
+    avoid_renaming_method_parameters: true
+    avoid_return_types_on_setters: true
+    avoid_returning_null: true
+    avoid_returning_null_for_void: true
+    avoid_returning_null_for_future: true
+    avoid_slow_async_io: true
+    avoid_unnecessary_containers: true
+    avoid_unused_constructor_parameters: true
+    avoid_void_async: true
+    await_only_futures: true
+    camel_case_types: true
+    cascade_invocations: true
+    constant_identifier_names: false
+    empty_constructor_bodies: true
+    exhaustive_cases: true
+    file_names: true
+    join_return_with_assignment: true
+    package_names: true
+    parameter_assignments: true
+    prefer_collection_literals: true
+    prefer_conditional_assignment: true
+    prefer_contains: true
+    prefer_const_constructors: true
+    prefer_const_constructors_in_immutables: true
+    prefer_const_declarations: true
+    prefer_const_literals_to_create_immutables: true
+    prefer_final_fields: true
+    prefer_inlined_adds: true
+    prefer_is_empty: true
+    prefer_is_not_empty: true
+    prefer_iterable_whereType: true
+    prefer_null_aware_method_calls: true
+    prefer_null_aware_operators: true
+    prefer_relative_imports: false
+    prefer_spread_collections: true
+    prefer_typing_uninitialized_variables: true
+    prefer_void_to_null: true
+    recursive_getters: true
+    sized_box_for_whitespace: true
+    sort_pub_dependencies: true
+    sort_child_properties_last: true
+    type_init_formals: true
+    unnecessary_await_in_return: true
+    unnecessary_brace_in_string_interps: true
+    unnecessary_const: true
+    unnecessary_getters_setters: true
+    unnecessary_late: true
+    unnecessary_new: true
+    unnecessary_null_aware_assignments: true
+    unnecessary_null_aware_operator_on_extension_on_nullable: true
+    unnecessary_nullable_for_final_variable_declarations: true
+    unnecessary_null_checks: true
+    unnecessary_overrides: true
+    unnecessary_parenthesis: false
+    unnecessary_to_list_in_spreads: true
+    use_enums: true
+    use_if_null_to_convert_nulls_to_bools: true
+    use_named_constants: true
+    use_rethrow_when_possible: true
+    use_setters_to_change_properties: true
+    use_super_parameters: true
+    use_test_throws_matchers: true
+    use_to_and_as_if_applicable: true
+    void_checks: true

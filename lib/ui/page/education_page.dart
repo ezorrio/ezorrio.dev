@@ -9,7 +9,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 class EducationPage extends StatelessWidget {
   static const routeName = '/education';
 
-  const EducationPage({Key? key}) : super(key: key);
+  const EducationPage({super.key});
 
   static EducationPage instance() => const EducationPage();
 

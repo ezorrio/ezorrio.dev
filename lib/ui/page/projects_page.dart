@@ -9,7 +9,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 class ProjectsPage extends StatelessWidget {
   static const routeName = '/projects';
 
-  const ProjectsPage({Key? key}) : super(key: key);
+  const ProjectsPage({super.key});
 
   static ProjectsPage instance() => const ProjectsPage();
 
@@ -24,7 +24,7 @@ class ProjectsPage extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                '${AppUtils.formatTime(project.start!)} - ${AppUtils.formatTime(project.end!)}',
+                '${AppUtils.formatTime(project.start)} - ${AppUtils.formatTime(project.end)}',
                 style: context.textStyleCaption,
               ),
               const SizedBox(height: 12),

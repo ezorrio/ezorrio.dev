@@ -1,7 +1,6 @@
+import 'package:ezorrio_dev/bloc/appearance/appearance_state.dart';
 import 'package:ezorrio_dev/resource/settings_repository.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-
-import 'appearance_state.dart';
 
 class AppearanceCubit extends Cubit<AppearanceState> {
   SettingsRepository repository;

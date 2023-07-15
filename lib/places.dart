@@ -1,10 +1,9 @@
+import 'package:ezorrio_dev/model/app_place.dart';
 import 'package:ezorrio_dev/ui/page/education_page.dart';
 import 'package:ezorrio_dev/ui/page/intro_page.dart';
 import 'package:ezorrio_dev/ui/page/projects_page.dart';
 import 'package:ezorrio_dev/ui/page/work_page.dart';
 import 'package:flutter/material.dart';
-
-import 'model/app_place.dart';
 
 class Places {
   static var intro = AppPlace(title: 'About me', icon: Icons.info_outline, routeName: IntroPage.routeName);
