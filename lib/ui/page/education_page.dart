@@ -1,7 +1,8 @@
 import 'package:ezorrio_dev/extensions.dart';
 import 'package:ezorrio_dev/model/education.dart';
 import 'package:ezorrio_dev/resource/data_repository.dart';
-import 'package:ezorrio_dev/ui/widget/app_widgets.dart';
+import 'package:ezorrio_dev/ui/widget/app_card.dart';
+import 'package:ezorrio_dev/ui/widget/conditional_padding.dart';
 import 'package:ezorrio_dev/utils/app_utils.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -13,10 +14,9 @@ class EducationPage extends StatelessWidget {
 
   static EducationPage instance() => const EducationPage();
 
-  Widget projectItem(BuildContext context, Education education) => AppWidgets.conditionalPadding(
-        context: context,
-        child: AppWidgets.infoCard(
-          context: context,
+  Widget projectItem(BuildContext context, Education education) => ConditionalPadding(
+        needPadding: AppUtils.isCompact(context: context),
+        child: AppCard(
           title: education.place,
           content: Column(
             mainAxisSize: MainAxisSize.min,

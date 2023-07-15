@@ -7,7 +7,7 @@ class AppUtils {
       Theme.of(context).colorScheme.brightness == Brightness.light;
 
   static bool isCompact({required BuildContext context}) =>
-      MediaQuery.of(context).size.width < Constants.desktopMenuSize * 2.5;
+      MediaQuery.sizeOf(context).width < Constants.desktopMenuSize * 4;
 
   static void hideKeyboard(BuildContext context) => FocusScope.of(context).requestFocus(FocusNode());
 

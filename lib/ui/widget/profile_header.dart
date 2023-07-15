@@ -1,7 +1,7 @@
 import 'package:ezorrio_dev/extensions.dart';
 import 'package:ezorrio_dev/resource/data_repository.dart';
-import 'package:ezorrio_dev/ui/widget/app_widgets.dart';
 import 'package:ezorrio_dev/ui/widget/social_networks.dart';
+import 'package:ezorrio_dev/ui/widget/theme_chooser.dart';
 import 'package:ezorrio_dev/utils/app_utils.dart';
 import 'package:flutter/material.dart';
 
@@ -100,8 +100,7 @@ class ProfileHeader extends StatelessWidget {
         children: <Widget>[
           _onCorner(IconButton(
             icon: const Icon(Icons.bedtime_outlined, size: 16),
-            onPressed: () => showModalBottomSheet<void>(
-                context: context, builder: (builder) => AppWidgets.themeChooser(context: context)),
+            onPressed: () => showModalBottomSheet<void>(context: context, builder: (builder) => const ThemeChooser()),
           )),
           Center(
             child: Padding(padding: const EdgeInsets.symmetric(vertical: 8.0), child: profile(context)),

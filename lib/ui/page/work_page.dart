@@ -2,7 +2,8 @@ import 'package:ezorrio_dev/extensions.dart';
 import 'package:ezorrio_dev/model/project.dart';
 import 'package:ezorrio_dev/model/work.dart';
 import 'package:ezorrio_dev/resource/data_repository.dart';
-import 'package:ezorrio_dev/ui/widget/app_widgets.dart';
+import 'package:ezorrio_dev/ui/widget/app_card.dart';
+import 'package:ezorrio_dev/ui/widget/conditional_padding.dart';
 import 'package:ezorrio_dev/utils/app_utils.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -41,10 +42,9 @@ class WorkPage extends StatelessWidget {
         ],
       );
 
-  Widget workItem(BuildContext context, Work work) => AppWidgets.conditionalPadding(
-        context: context,
-        child: AppWidgets.infoCard(
-          context: context,
+  Widget workItem(BuildContext context, Work work) => ConditionalPadding(
+        needPadding: AppUtils.isCompact(context: context),
+        child: AppCard(
           title: work.company,
           link: work.link,
           content: Column(

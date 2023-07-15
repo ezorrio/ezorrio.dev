@@ -1,6 +1,6 @@
 import 'package:ezorrio_dev/extensions.dart';
 import 'package:ezorrio_dev/resource/data_repository.dart';
-import 'package:ezorrio_dev/ui/widget/app_widgets.dart';
+import 'package:ezorrio_dev/ui/widget/app_card.dart';
 import 'package:ezorrio_dev/ui/widget/profile_header.dart';
 import 'package:ezorrio_dev/utils/app_utils.dart';
 import 'package:flutter/material.dart';
@@ -20,8 +20,7 @@ class IntroPage extends StatefulWidget {
 }
 
 class IntroPageState extends State<IntroPage> {
-  Widget welcomeCard() => AppWidgets.infoCard(
-        context: context,
+  Widget welcomeCard() => AppCard(
         title: 'About me 🐰',
         content: Text(
           'Senior Application Developer with leading experience\n\n'
@@ -30,8 +29,7 @@ class IntroPageState extends State<IntroPage> {
         ),
       );
 
-  Widget locationCard() => AppWidgets.infoCard(
-        context: context,
+  Widget locationCard() => AppCard(
         title: 'Location 📍',
         content: Text(
           '2021 - now: Oslo, Norway 🇳🇴 \n'
@@ -41,8 +39,7 @@ class IntroPageState extends State<IntroPage> {
         ),
       );
 
-  Widget educationCard() => AppWidgets.infoCard(
-        context: context,
+  Widget educationCard() => AppCard(
         title: 'Education 🎓',
         content: Text(
           'MSc Computer Science, Data Science [ongoing] \n@University of Vienna\n\n'
@@ -51,8 +48,7 @@ class IntroPageState extends State<IntroPage> {
         ),
       );
 
-  Widget workCard() => AppWidgets.infoCard(
-        context: context,
+  Widget workCard() => AppCard(
         title: 'Work 🧰',
         content: Text(
           'Experienced in Flutter (>4 years). \n\n'
