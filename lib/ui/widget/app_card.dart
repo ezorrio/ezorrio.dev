@@ -26,9 +26,10 @@ class AppCard extends StatelessWidget {
               Row(
                 children: [
                   Expanded(
-                    child: Text(title,
-                        style:
-                            context.textStyleBody1.copyWith(color: context.primaryColor, fontWeight: FontWeight.bold)),
+                    child: Text(
+                      title,
+                      style: context.textStyleBody1.copyWith(color: context.primaryColor, fontWeight: FontWeight.bold),
+                    ),
                   ),
                   if (link != null)
                     InkWell(
