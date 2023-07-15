@@ -1,4 +1,4 @@
-part of 'NavigationBloc.dart';
+part of 'navigation_bloc.dart';
 
 abstract class NavigationEvent {
   const NavigationEvent();

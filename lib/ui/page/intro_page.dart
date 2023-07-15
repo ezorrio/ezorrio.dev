@@ -1,8 +1,8 @@
-import 'package:ezorrio_dev/Extensions.dart';
-import 'package:ezorrio_dev/resource/DataRepository.dart';
-import 'package:ezorrio_dev/ui/widget/AppWidgets.dart';
-import 'package:ezorrio_dev/ui/widget/ProfileHeader.dart';
-import 'package:ezorrio_dev/utils/AppUtils.dart';
+import 'package:ezorrio_dev/extensions.dart';
+import 'package:ezorrio_dev/resource/data_repository.dart';
+import 'package:ezorrio_dev/ui/widget/app_widgets.dart';
+import 'package:ezorrio_dev/ui/widget/profile_header.dart';
+import 'package:ezorrio_dev/utils/app_utils.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';

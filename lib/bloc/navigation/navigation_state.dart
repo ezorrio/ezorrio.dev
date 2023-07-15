@@ -1,4 +1,4 @@
-part of 'NavigationBloc.dart';
+part of 'navigation_bloc.dart';
 
 class NavigationState {
   AppPlace currentPage;

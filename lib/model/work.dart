@@ -1,4 +1,4 @@
-import 'package:ezorrio_dev/model/Project.dart';
+import 'package:ezorrio_dev/model/project.dart';
 
 class Work {
   String company;

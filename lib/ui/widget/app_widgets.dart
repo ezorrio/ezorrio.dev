@@ -1,11 +1,10 @@
-import 'package:ezorrio_dev/Constants.dart';
-import 'package:ezorrio_dev/Extensions.dart';
-import 'package:ezorrio_dev/bloc/appearance/AppearanceCubit.dart';
-import 'package:ezorrio_dev/bloc/appearance/AppearanceState.dart';
-import 'package:ezorrio_dev/utils/AppUtils.dart';
+import 'package:ezorrio_dev/bloc/appearance/appearance_cubit.dart';
+import 'package:ezorrio_dev/bloc/appearance/appearance_state.dart';
+import 'package:ezorrio_dev/constants.dart';
+import 'package:ezorrio_dev/extensions.dart';
+import 'package:ezorrio_dev/utils/app_utils.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:url_launcher/url_launcher_string.dart';
 
 class AppWidgets {
@@ -64,18 +63,26 @@ class AppWidgets {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               IconButton(
-                  icon: const Icon(Icons.wb_sunny_outlined),
-                  disabledColor: context.primaryColor,
-                  onPressed:
-                      state is! Light ? () => BlocProvider.of<AppearanceCubit>(context).lightManualChose() : null),
+                icon: const Icon(Icons.wb_sunny_outlined),
+                disabledColor: context.primaryColor,
+                onPressed: state.appTheme != AppTheme.light
+                    ? () => BlocProvider.of<AppearanceCubit>(context).lightManualChose()
+                    : null,
+              ),
               IconButton(
-                  icon: const Icon(Icons.nightlight_round),
-                  disabledColor: context.primaryColor,
-                  onPressed: state is! Dark ? () => BlocProvider.of<AppearanceCubit>(context).darkManualChose() : null),
+                icon: const Icon(Icons.nightlight_round),
+                disabledColor: context.primaryColor,
+                onPressed: state.appTheme != AppTheme.dark
+                    ? () => BlocProvider.of<AppearanceCubit>(context).darkManualChose()
+                    : null,
+              ),
               IconButton(
-                  icon: const Icon(Icons.brightness_auto_outlined),
-                  disabledColor: context.primaryColor,
-                  onPressed: state is! System ? () => BlocProvider.of<AppearanceCubit>(context).systemChose() : null),
+                icon: const Icon(Icons.brightness_auto_outlined),
+                disabledColor: context.primaryColor,
+                onPressed: state.appTheme != AppTheme.system
+                    ? () => BlocProvider.of<AppearanceCubit>(context).systemChose()
+                    : null,
+              ),
             ],
           ),
         ),
@@ -86,7 +93,7 @@ class AppWidgets {
     required Widget child,
   }) =>
       Padding(
-        padding: AppUtils.isCompact(context: context) ? EdgeInsets.symmetric(horizontal: 16.0) : EdgeInsets.zero,
+        padding: AppUtils.isCompact(context: context) ? const EdgeInsets.symmetric(horizontal: 16.0) : EdgeInsets.zero,
         child: child,
       );
 }

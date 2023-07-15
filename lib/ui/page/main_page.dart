@@ -1,15 +1,12 @@
-import 'package:ezorrio_dev/Constants.dart';
-import 'package:ezorrio_dev/Extensions.dart';
-import 'package:ezorrio_dev/Places.dart';
-import 'package:ezorrio_dev/model/AppPlace.dart';
-import 'package:ezorrio_dev/resource/DataRepository.dart';
-import 'package:ezorrio_dev/ui/page/IntroPage.dart';
-import 'package:ezorrio_dev/ui/page/ProjectsPage.dart';
-import 'package:ezorrio_dev/ui/page/WorkPage.dart';
-import 'package:ezorrio_dev/ui/widget/ProfileHeader.dart';
-import 'package:ezorrio_dev/utils/AppUtils.dart';
+import 'package:ezorrio_dev/constants.dart';
+import 'package:ezorrio_dev/extensions.dart';
+import 'package:ezorrio_dev/model/app_place.dart';
+import 'package:ezorrio_dev/places.dart';
+import 'package:ezorrio_dev/ui/page/intro_page.dart';
+import 'package:ezorrio_dev/ui/page/projects_page.dart';
+import 'package:ezorrio_dev/ui/page/work_page.dart';
+import 'package:ezorrio_dev/utils/app_utils.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 
 class MainPage extends StatefulWidget {
   const MainPage({Key? key}) : super(key: key);
@@ -87,9 +84,9 @@ class MainPageState extends State<MainPage> with TickerProviderStateMixin {
   Widget desktopLayout() => Center(
         child: ConstrainedBox(
           constraints: const BoxConstraints.expand(width: 5 * Constants.desktopMenuSize),
-          child: SingleChildScrollView(
+          child: const SingleChildScrollView(
             child: Padding(
-              padding: const EdgeInsets.all(16.0),
+              padding: EdgeInsets.all(16.0),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 mainAxisSize: MainAxisSize.min,
@@ -101,13 +98,13 @@ class MainPageState extends State<MainPage> with TickerProviderStateMixin {
                         flex: 2,
                         child: Column(
                           mainAxisSize: MainAxisSize.min,
-                          children: const [
+                          children: [
                             IntroPage(),
                             ProjectsPage(),
                           ],
                         ),
                       ),
-                      const Expanded(flex: 3, child: WorkPage()),
+                      Expanded(flex: 3, child: WorkPage()),
                     ],
                   ),
                 ],

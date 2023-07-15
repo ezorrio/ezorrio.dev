@@ -1,10 +1,10 @@
-import 'package:ezorrio_dev/Themes.dart';
-import 'package:ezorrio_dev/bloc/appearance/AppearanceCubit.dart';
-import 'package:ezorrio_dev/bloc/appearance/AppearanceState.dart';
-import 'package:ezorrio_dev/bloc/navigation/NavigationBloc.dart';
-import 'package:ezorrio_dev/resource/DataRepository.dart';
-import 'package:ezorrio_dev/resource/SettingsRepository.dart';
-import 'package:ezorrio_dev/ui/page/MainPage.dart';
+import 'package:ezorrio_dev/bloc/appearance/appearance_cubit.dart';
+import 'package:ezorrio_dev/bloc/appearance/appearance_state.dart';
+import 'package:ezorrio_dev/bloc/navigation/navigation_bloc.dart';
+import 'package:ezorrio_dev/resource/data_repository.dart';
+import 'package:ezorrio_dev/resource/settings_repository.dart';
+import 'package:ezorrio_dev/themes.dart';
+import 'package:ezorrio_dev/ui/page/main_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -14,7 +14,7 @@ class AppRouteObserver extends RouteObserver<PageRoute<dynamic>> {
   AppRouteObserver({required this.bloc});
 
   @override
-  void didPush(Route route, Route? previousRoute) {
+  void didPush(Route<dynamic> route, Route<dynamic>? previousRoute) {
     super.didPush(route, previousRoute);
     if (route is PageRoute) {
       bloc.add(AppPageOpened(routeName: (route.settings.name)!));
@@ -24,7 +24,6 @@ class AppRouteObserver extends RouteObserver<PageRoute<dynamic>> {
   @override
   void didReplace({Route<dynamic>? newRoute, Route<dynamic>? oldRoute}) {
     super.didReplace(newRoute: newRoute, oldRoute: oldRoute);
-    debugPrint('did replace');
     if (newRoute is PageRoute) {
       bloc.add(AppPageOpened(routeName: (newRoute.settings.name)!));
     }
@@ -33,7 +32,6 @@ class AppRouteObserver extends RouteObserver<PageRoute<dynamic>> {
   @override
   void didPop(Route<dynamic> route, Route<dynamic>? previousRoute) {
     super.didPop(route, previousRoute);
-    debugPrint('did pop');
 
     if (previousRoute is PageRoute) {
       bloc.add(AppPageOpened(routeName: (previousRoute.settings.name)!));
@@ -102,8 +100,11 @@ class AppState extends State<App> with WidgetsBindingObserver, RouteAware {
           home: const Scaffold(body: MainPage()),
           theme: Themes.materialTheme(),
           darkTheme: Themes.materialDarkTheme(),
-          themeMode:
-              state.map(light: (_) => ThemeMode.light, dark: (_) => ThemeMode.dark, system: (_) => ThemeMode.system),
+          themeMode: switch (state.appTheme) {
+            AppTheme.light => ThemeMode.light,
+            AppTheme.dark => ThemeMode.dark,
+            AppTheme.system => ThemeMode.system,
+          },
         ),
       );
 }

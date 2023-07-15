@@ -1,9 +1,9 @@
-import 'package:ezorrio_dev/Extensions.dart';
-import 'package:ezorrio_dev/model/Project.dart';
-import 'package:ezorrio_dev/model/Work.dart';
-import 'package:ezorrio_dev/resource/DataRepository.dart';
-import 'package:ezorrio_dev/ui/widget/AppWidgets.dart';
-import 'package:ezorrio_dev/utils/AppUtils.dart';
+import 'package:ezorrio_dev/extensions.dart';
+import 'package:ezorrio_dev/model/project.dart';
+import 'package:ezorrio_dev/model/work.dart';
+import 'package:ezorrio_dev/resource/data_repository.dart';
+import 'package:ezorrio_dev/ui/widget/app_widgets.dart';
+import 'package:ezorrio_dev/utils/app_utils.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 

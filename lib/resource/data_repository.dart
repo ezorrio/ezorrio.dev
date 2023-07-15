@@ -1,6 +1,6 @@
-import 'package:ezorrio_dev/model/Education.dart';
-import 'package:ezorrio_dev/model/Project.dart';
-import 'package:ezorrio_dev/model/Work.dart';
+import 'package:ezorrio_dev/model/education.dart';
+import 'package:ezorrio_dev/model/project.dart';
+import 'package:ezorrio_dev/model/work.dart';
 
 class DataRepository {
   String name = 'Emin Guliev';
