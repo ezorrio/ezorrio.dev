@@ -92,11 +92,6 @@ class AppState extends State<App> with WidgetsBindingObserver, RouteAware {
   @override
   Widget build(BuildContext context) => BlocBuilder<AppearanceCubit, AppearanceState>(
         builder: (_, state) => MaterialApp(
-          // localizationsDelegates: const <LocalizationsDelegate<dynamic>>[
-          //   DefaultMaterialLocalizations.delegate,
-          //   DefaultWidgetsLocalizations.delegate,
-          //   DefaultCupertinoLocalizations.delegate,
-          // ],
           home: const Scaffold(body: MainPage()),
           theme: Themes.materialTheme(),
           darkTheme: Themes.materialDarkTheme(),

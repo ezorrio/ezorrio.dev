@@ -119,12 +119,20 @@ class DataRepository {
       start: DateTime(2022, 12),
       end: DateTime.now(),
       projects: [
-        Project(title: 'Coop Member App', description: '', tags: [
-          'flutter',
-          'dart',
-          'android',
-          'ios',
-        ]),
+        Project(
+            title: 'Coop Member App',
+            description: 'Responsibilities:\n'
+                '- Architecture of the new app, principles and guidelines\n'
+                '- Strategy for transitioning legacy code to new defined standards\n'
+                '- Implementation of business-critical functionalities\n'
+                '- New CI/CD, release management\n'
+                '- Identifying technical debt and strategy to solve that',
+            tags: [
+              'flutter',
+              'dart',
+              'android',
+              'ios',
+            ]),
       ],
     ),
     Work(
@@ -135,7 +143,7 @@ class DataRepository {
       end: DateTime(2022, 12),
       projects: [
         Project(
-            title: 'wheel.me',
+            title: 'wheel.me app',
             description: 'Developed a Cross-platform Real-time Flutter application for:\n'
                 '- Controlling wheels and groups of wheels\n'
                 '- Managing missions, zones, map data and other data\n'

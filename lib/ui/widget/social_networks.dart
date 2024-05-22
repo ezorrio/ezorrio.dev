@@ -32,26 +32,34 @@ class SocialNetworks extends StatelessWidget {
     super.key,
   });
 
-  Widget socialNetworkButton({required IconData icon, required String link}) => IconButton(
-        padding: EdgeInsets.zero,
-        iconSize: 16,
-        icon: FaIcon(
-          icon,
-          size: 16,
-        ),
+  Widget socialNetworkButton({required IconData icon, required String label, required String link}) => TextButton.icon(
+    icon: FaIcon(icon, size: 16),
+        label: Text(label),
+        // child: Row(
+        //   children: [
+        //     FaIcon(icon, size: 16),
+        //     const SizedBox(width: 8),
+        //     Text(label),
+        //   ],
+        // ),
         onPressed: () async =>
             await canLaunchUrlString(link) ? await launchUrlString(link) : throw 'Could not launch $link',
       );
 
   @override
-  Widget build(BuildContext context) => Row(
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          socialNetworkButton(icon: emailIcon, link: email),
-          socialNetworkButton(icon: telegramIcon, link: telegram),
-          socialNetworkButton(icon: githubIcon, link: github),
-          socialNetworkButton(icon: instagramIcon, link: instagram),
-          socialNetworkButton(icon: linkedinIcon, link: linkedin),
-        ],
+  Widget build(BuildContext context) => SingleChildScrollView(
+        scrollDirection: Axis.horizontal,
+        child: Row(
+          mainAxisSize: MainAxisSize.max,
+          children: [
+            socialNetworkButton(icon: emailIcon, label: 'Email me', link: email),
+            // const SizedBox(width: 16),
+            // socialNetworkButton(icon: telegramIcon, label: 'Telegram', link: telegram),
+            const SizedBox(width: 16),
+            socialNetworkButton(icon: githubIcon, label: 'GitHub', link: github),
+            const SizedBox(width: 16),
+            socialNetworkButton(icon: linkedinIcon, label: 'LinkedIn', link: linkedin),
+          ],
+        ),
       );
 }

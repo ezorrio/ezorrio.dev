@@ -1,25 +1,11 @@
-import 'package:ezorrio_dev/extensions.dart';
 import 'package:ezorrio_dev/resource/data_repository.dart';
 import 'package:ezorrio_dev/ui/widget/social_networks.dart';
 import 'package:ezorrio_dev/ui/widget/theme_chooser.dart';
-import 'package:ezorrio_dev/utils/app_utils.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class ProfileHeader extends StatelessWidget {
-  final String photoUrl;
-  final String name;
-  final String bio;
-  final String nickname;
-  final SocialNetworkLinks networkLinks;
-
-  const ProfileHeader({
-    required this.name,
-    required this.bio,
-    required this.photoUrl,
-    required this.nickname,
-    required this.networkLinks,
-    super.key,
-  });
+  const ProfileHeader({super.key});
 
   Widget _onCorner(Widget child) => Positioned.fill(
         child: Align(
@@ -28,75 +14,41 @@ class ProfileHeader extends StatelessWidget {
         ),
       );
 
-  Widget profile(BuildContext context) => AppUtils.isCompact(context: context)
-      ? Row(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: ClipOval(
-                child: Image.network(
-                  photoUrl,
-                  height: 100,
-                  width: 100,
-                  fit: BoxFit.cover,
-                ),
-              ),
-            ),
-            Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  Text(name, style: context.textStyleTitle),
-                  // SizedBox(height: 4),
-                  Text('@$nickname', style: context.textStyleCaption),
-                  const SizedBox(height: 8),
-                  Text(bio, style: context.textStyleCaption),
-                  const SizedBox(height: 4),
-                  SocialNetworks(
-                      twitter: networkLinks.twitter,
-                      instagram: networkLinks.instagram,
-                      telegram: networkLinks.telegram,
-                      linkedin: networkLinks.linkedin,
-                      github: networkLinks.github,
-                      email: networkLinks.email),
-                ],
-              ),
-            ),
-          ],
-        )
-      : Column(
-          mainAxisAlignment: MainAxisAlignment.spaceAround,
-          children: [
-            ClipOval(
-              child: Image.network(
-                photoUrl,
-                height: 120,
-                width: 120,
-                fit: BoxFit.cover,
-              ),
-            ),
-            const SizedBox(height: 4),
-            Text(name, style: context.textStyleTitle),
-            const SizedBox(height: 8),
-            Text('@$nickname', style: context.textStyleBody1),
-            const SizedBox(height: 8),
-            Text(bio, style: context.textStyleCaption),
-            const SizedBox(height: 8),
-            SocialNetworks(
-                twitter: networkLinks.twitter,
-                instagram: networkLinks.instagram,
-                telegram: networkLinks.telegram,
-                linkedin: networkLinks.linkedin,
-                github: networkLinks.github,
-                email: networkLinks.email),
-          ],
-        );
+  Widget socialNetworks(BuildContext context) => SocialNetworks(
+        twitter: RepositoryProvider.of<DataRepository>(context).networkLinks.twitter,
+        instagram: RepositoryProvider.of<DataRepository>(context).networkLinks.instagram,
+        telegram: RepositoryProvider.of<DataRepository>(context).networkLinks.telegram,
+        linkedin: RepositoryProvider.of<DataRepository>(context).networkLinks.linkedin,
+        github: RepositoryProvider.of<DataRepository>(context).networkLinks.github,
+        email: RepositoryProvider.of<DataRepository>(context).networkLinks.email,
+      );
 
-  Widget waves(BuildContext context) => Stack(
+  Widget name(BuildContext context) => Text(
+        RepositoryProvider.of<DataRepository>(context).name,
+        style: Theme.of(context).textTheme.titleLarge?.copyWith(fontWeight: FontWeight.bold),
+      );
+
+  Widget nickname(BuildContext context) => Text(RepositoryProvider.of<DataRepository>(context).nickname);
+
+  Widget description(BuildContext context) => Text(
+        RepositoryProvider.of<DataRepository>(context).jobTitle,
+        style: Theme.of(context).textTheme.titleMedium?.copyWith(fontWeight: FontWeight.w700)
+      );
+
+  Widget profile(BuildContext context) => Column(
+        mainAxisAlignment: MainAxisAlignment.spaceAround,
+        children: [
+          const SizedBox(height: 4),
+          name(context),
+          const SizedBox(height: 8),
+          description(context),
+          const SizedBox(height: 8),
+          socialNetworks(context),
+        ],
+      );
+
+  @override
+  Widget build(BuildContext context) => Stack(
         children: <Widget>[
           _onCorner(IconButton(
             icon: const Icon(Icons.bedtime_outlined, size: 16),
@@ -106,11 +58,5 @@ class ProfileHeader extends StatelessWidget {
             child: Padding(padding: const EdgeInsets.symmetric(vertical: 8.0), child: profile(context)),
           ),
         ],
-      );
-
-  @override
-  Widget build(BuildContext context) => Card(
-        clipBehavior: Clip.antiAlias,
-        child: waves(context),
       );
 }

@@ -1,10 +1,9 @@
-import 'package:ezorrio_dev/constants.dart';
 import 'package:ezorrio_dev/extensions.dart';
 import 'package:ezorrio_dev/model/app_place.dart';
 import 'package:ezorrio_dev/places.dart';
-import 'package:ezorrio_dev/ui/page/intro_page.dart';
 import 'package:ezorrio_dev/ui/page/projects_page.dart';
 import 'package:ezorrio_dev/ui/page/work_page.dart';
+import 'package:ezorrio_dev/ui/widget/profile_header.dart';
 import 'package:ezorrio_dev/utils/app_utils.dart';
 import 'package:flutter/material.dart';
 
@@ -19,7 +18,6 @@ class MainPageState extends State<MainPage> with TickerProviderStateMixin {
   late TabController tabController;
 
   final Map<AppPlace, Widget> pages = {
-    Places.intro: const IntroPage(),
     Places.work: const WorkPage(),
     Places.projects: const ProjectsPage(),
     // if (kDebugMode) AppPlaces.schedule: const SchedulePage(),
@@ -31,83 +29,65 @@ class MainPageState extends State<MainPage> with TickerProviderStateMixin {
     tabController = TabController(length: pages.length, vsync: this);
   }
 
-  Widget mobileLayout() => DefaultTabController(
+  Widget bar() => Row(
+        mainAxisSize: MainAxisSize.min,
+        children: pages.keys
+            .map((e) => Column(
+                  children: [
+                    TextButton(
+                      onPressed: () => setState(() {
+                        tabController.animateTo(
+                          pages.keys.toList().indexOf(e),
+                          duration: const Duration(milliseconds: 300),
+                        );
+                      }),
+                      // icon: Icon(e.icon),
+                      child: Text(e.title),
+                    ),
+                    if (e == pages.keys.elementAt(tabController.index))
+                      Container(
+                        height: 2,
+                        width: 50,
+                        color: context.primaryColor,
+                      ),
+                  ],
+                ))
+            .toList(growable: false),
+      );
+
+  Widget body() => DefaultTabController(
         initialIndex: 0,
         length: pages.length,
         // animationDuration: Duration.zero,
         child: Column(
           mainAxisSize: MainAxisSize.max,
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            // AppBar(title: Text(pages.keys.elementAt(tabController.index).title)),
+            bar(),
             Expanded(child: pages.values.elementAt(tabController.index)),
-            BottomNavigationBar(
-              enableFeedback: false,
-              type: BottomNavigationBarType.shifting,
-              useLegacyColorScheme: false,
-              landscapeLayout: BottomNavigationBarLandscapeLayout.linear,
-              currentIndex: tabController.index,
-              onTap: (index) => setState(() {
-                tabController.index = index;
-              }),
-              showUnselectedLabels: false,
-              showSelectedLabels: false,
-              selectedItemColor: context.primaryColor,
-              items: pages.keys
-                  .map((e) => BottomNavigationBarItem(
-                      icon: Card(
-                        margin: EdgeInsets.zero,
-                        child: Padding(
-                          padding: const EdgeInsets.all(8.0),
-                          child: Row(
-                            mainAxisSize: MainAxisSize.min,
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              Icon(e.icon),
-                              if (e == pages.keys.elementAt(tabController.index)) ...[
-                                const SizedBox(width: 8.0),
-                                Text(
-                                  e.title,
-                                  style: context.textStyleBody1.copyWith(color: context.primaryColor),
-                                ),
-                              ]
-                            ],
-                          ),
-                        ),
-                      ),
-                      label: ''))
-                  .toList(growable: false),
-            ),
           ],
         ),
       );
 
-  Widget desktopLayout() => Center(
-        child: ConstrainedBox(
-          constraints: const BoxConstraints.expand(width: 5 * Constants.desktopMenuSize),
-          child: const SingleChildScrollView(
-            child: Padding(
-              padding: EdgeInsets.all(16.0),
-              child: Row(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Expanded(
-                    flex: 2,
-                    child: Column(
-                      mainAxisSize: MainAxisSize.min,
-                      children: [
-                        IntroPage(),
-                        ProjectsPage(),
-                      ],
-                    ),
-                  ),
-                  Expanded(flex: 3, child: WorkPage()),
-                ],
-              ),
-            ),
+  Widget mobileLayout() => body();
+
+  Widget desktopLayout() => Row(
+        children: [
+          const Spacer(),
+          Expanded(
+            flex: 3,
+            child: body(),
           ),
-        ),
+          const Spacer(),
+        ],
       );
 
   @override
-  Widget build(BuildContext context) => AppUtils.isCompact(context: context) ? mobileLayout() : desktopLayout();
+  Widget build(BuildContext context) => Scaffold(
+        appBar: const PreferredSize(
+          preferredSize: Size.fromHeight(120),
+          child: ProfileHeader(),
+        ),
+        body: AppUtils.isCompact(context: context) ? mobileLayout() : desktopLayout(),
+      );
 }

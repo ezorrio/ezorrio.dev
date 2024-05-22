@@ -3,7 +3,6 @@ import 'package:ezorrio_dev/model/project.dart';
 import 'package:ezorrio_dev/model/work.dart';
 import 'package:ezorrio_dev/resource/data_repository.dart';
 import 'package:ezorrio_dev/ui/widget/app_card.dart';
-import 'package:ezorrio_dev/ui/widget/conditional_padding.dart';
 import 'package:ezorrio_dev/utils/app_utils.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -42,35 +41,33 @@ class WorkPage extends StatelessWidget {
         ],
       );
 
-  Widget workItem(BuildContext context, Work work) => ConditionalPadding(
-        needPadding: AppUtils.isCompact(context: context),
-        child: AppCard(
-          title: work.company,
-          link: work.link,
-          content: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              Text(work.position),
-              Text(
-                '${AppUtils.formatTime(work.start)} - ${AppUtils.formatTime(work.end)}',
-                style: context.textStyleCaption,
+  Widget workItem(BuildContext context, Work work) => AppCard(
+        title: work.company,
+        link: work.link,
+        content: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Text(work.position),
+            Text(
+              '${AppUtils.formatTime(work.start)} - ${AppUtils.formatTime(work.end)}',
+              style: context.textStyleCaption,
+            ),
+            ...work.projects.map(
+              (item) => Padding(
+                padding: const EdgeInsets.symmetric(vertical: 12.0),
+                child: projectItem(context, item),
               ),
-              ...work.projects.map(
-                (item) => Padding(
-                  padding: const EdgeInsets.symmetric(vertical: 12.0),
-                  child: projectItem(context, item),
-                ),
-              ),
-            ],
-          ),
+            ),
+          ],
         ),
       );
 
   @override
-  Widget build(BuildContext context) => ListView.builder(
+  Widget build(BuildContext context) => ListView.separated(
         shrinkWrap: true,
         itemBuilder: (_, index) => workItem(context, RepositoryProvider.of<DataRepository>(context).works[index]),
         itemCount: RepositoryProvider.of<DataRepository>(context).works.length,
+        separatorBuilder: (BuildContext context, int index) => const Divider(),
       );
 }
