@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 class AppColors {
   static var primary = Colors.black87;
@@ -22,7 +21,7 @@ class Themes {
           secondary: AppColors.primary,
           primary: AppColors.primary,
         ),
-        textTheme: GoogleFonts.montserratTextTheme(ThemeData.light().textTheme),
+        // textTheme: GoogleFonts.montserratTextTheme(ThemeData.light().textTheme),
       ).copyWith(
         cardTheme: CardTheme(
           // color: Colors.grey.shade50,
@@ -40,7 +39,7 @@ class Themes {
           secondary: AppColors.primaryDark,
           brightness: Brightness.dark,
         ),
-        textTheme: GoogleFonts.montserratTextTheme(ThemeData.dark().textTheme),
+        // textTheme: GoogleFonts.montserratTextTheme(ThemeData.dark().textTheme),
       ).copyWith(
         cardTheme: CardTheme(
           color: Colors.grey.shade900,
